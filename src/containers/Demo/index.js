@@ -1,42 +1,30 @@
 /**
- * Created by zhangyi on 2017/10/19.
+ * Created by zhangyi on 2017/10/23.
  */
 import React from 'react'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-import * as globalActions from 'reducers/global/globalActions'
+import { Switch, Route } from 'react-router-dom'
 import { YHPage } from 'yhbase'
+import asyncComponent from '../../routes/asyncComponent'
+const Dialog = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Dialog'));
+const Modal = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Modal'));
 
-function mapStateToProps (store) {
-    return {
-        isLoading: store.global.isLoading
-    }
-}
 
-function mapDispatchToProps (dispatch) {
-    return {
-        actions: bindActionCreators(globalActions, dispatch)
-    }
-}
-
-class Demo extends YHPage {
+export default class Demo extends YHPage {
     constructor (props) {
         super(props)
     }
 
-    componentDidMount() {
-
-    }
-
-    render () {
-        console.log('this.props', this.props)
+    render() {
+        const { match } = this.props
+        // console.log('match:', match)
         return (
             <div>
-                <p> demo {this.props.isLoading+''} </p>
+                <h2>Demo</h2>
+                <Switch>
+                    <Route path={`${match.path}/dialog`} component={Dialog}/>
+                    <Route path={`${match.path}/modal`} component={Modal}/>
+                </Switch>
             </div>
         )
     }
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(Demo)
-

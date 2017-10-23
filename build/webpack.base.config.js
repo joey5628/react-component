@@ -33,10 +33,11 @@ module.exports = {
     resolve: {
         alias: {
             'yhbase': resolve('src/yhbase'),
+            'yhui': resolve('src/yhui'),
             'containers': resolve('src/containers'),
             'reducers': resolve('src/reducers')
         },
-        extensions: [".js", ".json"],
+        extensions: [".js", ".json", ".less"],
     },
     module: {
         loaders: [

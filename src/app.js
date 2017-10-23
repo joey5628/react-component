@@ -7,7 +7,7 @@ import { Provider } from 'react-redux'
 import { HashRouter } from 'react-router-dom'
 import store from './store'
 import Routes from './routes'
-
+import 'normalize.css'
 import './assets/css/base.less'
 
 

@@ -12,9 +12,7 @@ export default class Home extends YHPage {
     render () {
         return (
             <div>
-                <h3>home</h3>
-                <div></div>
-                <span></span>        
+                <h3>Home</h3>
             </div>
         )
     }

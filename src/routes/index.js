@@ -8,7 +8,7 @@ import asyncComponent from './asyncComponent'
 
 const Home = asyncComponent(() => import(/* webpackChunkName: "home" */ '../containers/Home'));
 const List = asyncComponent(() => import(/* webpackChunkName: "list" */ '../containers/List'));
-const Demo = asyncComponent(() => import(/* webpackChunkName: "list" */ '../containers/Demo'));
+const Demo = asyncComponent(() => import(/* webpackChunkName: "Demo" */ '../containers/Demo'));
 
 export default function Routes () {
     return (
