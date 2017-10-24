@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+// import TransitionGroup from 'react-transition-group/TransitionGroup'
 import {
     getChildrenFromProps,
     toArrayChildren
@@ -67,20 +68,19 @@ export default class Animation extends Component {
             children,
             ...other
         } = this.props
-        // let newChildren = toArrayChildren(getChildrenFromProps(children))
-        // let node = null;
-        // node = newChildren.map((child) => {
-        //     if (child === null || child === undefined) {
-        //         return child
-        //     }
-        //     if (!child.key) {
-        //         throw new Error('must set key for <animate> children');
-        //     }
-        //     return child
-        // })
+        let newChildren = toArrayChildren(getChildrenFromProps(children))
+        let node = newChildren.map((child) => {
+            if (child === null || child === undefined) {
+                return child
+            }
+            if (!child.key) {
+                throw new Error('must set key for <animation> children');
+            }
+            return child
+        })
         return (
             <ReactCSSTransitionGroup {...other}>
-                {children}
+                {node}
             </ReactCSSTransitionGroup>
         )
     }

@@ -7,6 +7,7 @@ import { Provider } from 'react-redux'
 import { HashRouter } from 'react-router-dom'
 import store from './store'
 import Routes from './routes'
+import { AppContainer } from 'yhbase'
 import 'normalize.css'
 import './assets/css/base.less'
 
@@ -14,7 +15,7 @@ import './assets/css/base.less'
 render(
     <Provider store={store}>
         <HashRouter>
-            <Routes/>
+            <AppContainer/>
         </HashRouter>
     </Provider>,
     document.getElementById('app')

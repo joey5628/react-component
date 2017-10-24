@@ -29,10 +29,11 @@ export default class YHPage extends Component {
         hideLoading && hideLoading();
     }
 
-    showToast() {
+    showToast(content) {
         const {
             showToast
         } = this.context
-        showToast && showToast()
+        console.log('showToast:', showToast)
+        showToast && showToast(content)
     }
 }

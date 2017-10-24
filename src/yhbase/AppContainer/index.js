@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import Routes from '../../routes'
+import {
+    Toast
+} from 'yhui'
 
 export default class AppContainer extends Component {
     constructor (props) {
@@ -40,8 +44,13 @@ export default class AppContainer extends Component {
         })
     }
 
-    showToast () {
+    showToast = (content) => {
         console.log('show toast')
+        console.log('this:', this)
+        if(this.refs.toast) {
+            this.refs.toast.registerToast(content);
+            this.refs.toast.showToast(content);
+        }
     }
 
     render () {
@@ -53,6 +62,8 @@ export default class AppContainer extends Component {
         return (
             <section className="app-container">
                 {this.props.childrend}
+                <Toast ref="toast"/>
+                <Routes/>
             </section>
         )
     }
