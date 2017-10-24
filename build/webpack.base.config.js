@@ -35,7 +35,8 @@ module.exports = {
             'yhbase': resolve('src/yhbase'),
             'yhui': resolve('src/yhui'),
             'containers': resolve('src/containers'),
-            'reducers': resolve('src/reducers')
+            'reducers': resolve('src/reducers'),
+            'assets': resolve('src/assets')
         },
         extensions: [".js", ".json", ".less"],
     },
