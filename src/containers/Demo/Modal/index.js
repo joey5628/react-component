@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as globalActions from 'reducers/global/globalActions'
 import { YHPage } from 'yhbase'
-import { Dialog, Modal, alert } from 'yhui'
+import { Dialog, Modal, alert, Button } from 'yhui'
 import './index.less'
 
 function mapStateToProps (store) {
@@ -59,11 +59,11 @@ class Demo extends YHPage {
 
     render () {
         return (
-            <div>
+            <div className="modal-container">
                 <p> demo {this.props.isLoading+''} </p>
-                <button type="button" className="btn" onClick={this.show}>打开Modal</button>
-                <button type="button" className="btn" onClick={this.openAlert}>打开Alert</button>
-                <button type="button" className="btn" onClick={this.openToast}>打开Toast</button>
+                <Button type="primary" inline onClick={this.show}>打开Modal</Button>
+                <Button type="primary" inline onClick={this.openAlert}>打开Alert</Button>
+                <Button type="primary" inline onClick={this.openToast}>打开Toast</Button>
                 <Modal
                     visible={this.state.visible}
                     maskCloseable={false}
