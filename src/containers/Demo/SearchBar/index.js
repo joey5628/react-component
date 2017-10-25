@@ -12,7 +12,7 @@ export default class SearchDemo extends YHPage {
 
     render () {
         return (
-            <div style={{paddingTop: 20, backgroundColor: '#fff', height: 500}}>
+            <div>
                 <SearchBar
                     onSubmit={()=>{ console.log('onSubmit') }}
                     onChange={(value)=>{ console.log('onChange value:', value) }}

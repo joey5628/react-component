@@ -1,0 +1,46 @@
+@import '../../assets/css/default.less';
+
+@tagPrefixCls: yh-tag;
+
+// tag
+// --
+@tag-height: 50px;
+@tag-radius: 6px;
+@tag-h-spacing: 20px;
+@tag-close-font-size: 26px;
+
+@tag-bg-default: #fff;
+@tag-bg-primary: @brand-primary;
+//@tag-bg-error: @brand-error;
+
+.@{tagPrefixCls} {
+    display: inline-block;
+    font-size: @font-size-base;
+    color: @color-text-base;
+    text-align: center;
+    height: @tag-height;
+    line-height: @tag-height;
+    border-radius: @tag-radius;
+    box-sizing: border-box;
+    padding: 0 @tag-h-spacing;
+    background-color: #ffffff;
+
+    i {
+        font-size: @tag-close-font-size;
+        color: #333;
+        display: none;
+        vertical-align: text-top;
+        margin-left: 15px;
+        &.show-close{
+            display: inline;
+        }
+    }
+
+    &-primary {
+        background-color: @tag-bg-primary;
+        color: @color-text-base-inverse;
+        i {
+            color: @color-text-base-inverse;
+        }
+    }
+}

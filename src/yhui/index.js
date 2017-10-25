@@ -5,6 +5,7 @@ import alert from './Alert'
 import Button from './Button'
 import Toast from './Toast'
 import SearchBar from './SearchBar'
+import Tag from './Tag'
 
 export {
     Animation,
@@ -13,5 +14,6 @@ export {
     alert,
     Button,
     Toast,
-    SearchBar
+    SearchBar,
+    Tag
 }
