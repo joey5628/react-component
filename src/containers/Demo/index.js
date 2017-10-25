@@ -8,6 +8,7 @@ import asyncComponent from '../../routes/asyncComponent'
 const Dialog = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Dialog'));
 const Modal = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Modal'));
 const ButtonDemo = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Button'));
+const SearchBar = asyncComponent(() => import(/* webpackChunkName: "demo" */ './SearchBar'));
 
 
 export default class Demo extends YHPage {
@@ -25,6 +26,7 @@ export default class Demo extends YHPage {
                     <Route path={`${match.path}/dialog`} component={Dialog}/>
                     <Route path={`${match.path}/modal`} component={Modal}/>
                     <Route path={`${match.path}/button`} component={ButtonDemo}/>
+                    <Route path={`${match.path}/searchbar`} component={SearchBar}/>
                 </Switch>
             </div>
         )

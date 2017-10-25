@@ -4,6 +4,7 @@ import Modal from './Modal'
 import alert from './Alert'
 import Button from './Button'
 import Toast from './Toast'
+import SearchBar from './SearchBar'
 
 export {
     Animation,
@@ -11,5 +12,6 @@ export {
     Modal,
     alert,
     Button,
-    Toast
+    Toast,
+    SearchBar
 }

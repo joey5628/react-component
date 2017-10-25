@@ -48,11 +48,11 @@ export default class Animation extends Component {
 
     componentDidAppear () {}
 
-    componentWillEnter () {}
-
-    componentDidEnter () {
-        console.log('componentDidEnter')
-    }
+    // componentWillEnter () {}
+    //
+    // componentDidEnter () {
+    //     console.log('componentDidEnter')
+    // }
 
     componentWillLeave () {
         console.log('componentWillLeave')

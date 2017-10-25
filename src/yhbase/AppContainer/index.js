@@ -45,8 +45,6 @@ export default class AppContainer extends Component {
     }
 
     showToast = (content) => {
-        console.log('show toast')
-        console.log('this:', this)
         if(this.refs.toast) {
             this.refs.toast.registerToast(content);
             this.refs.toast.showToast(content);

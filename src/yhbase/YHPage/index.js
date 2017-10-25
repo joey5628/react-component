@@ -33,7 +33,6 @@ export default class YHPage extends Component {
         const {
             showToast
         } = this.context
-        console.log('showToast:', showToast)
         showToast && showToast(content)
     }
 }
