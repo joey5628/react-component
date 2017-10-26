@@ -15,6 +15,10 @@ export default class TagDemo extends YHPage {
         document.body.style.backgroundColor = '#f5f5f9';
     }
 
+    componentWillUnmount () {
+        document.body.style.backgroundColor = '#fff';
+    }
+
     render() {
         return (
             <div className="tag-container">

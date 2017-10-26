@@ -6,6 +6,7 @@ import Button from './Button'
 import Toast from './Toast'
 import SearchBar from './SearchBar'
 import Tag from './Tag'
+import SwipeAction from './SwipeAction'
 
 export {
     Animation,
@@ -15,5 +16,6 @@ export {
     Button,
     Toast,
     SearchBar,
-    Tag
+    Tag,
+    SwipeAction
 }
