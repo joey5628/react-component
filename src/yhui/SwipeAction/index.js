@@ -150,10 +150,12 @@ export default class SwipeAction extends Component {
 
     // 设置 translate3d
     setStyle = (value) => {
-        const limit = value > 0 ? this.btnsLeftWidth : -this.btnsRightWidth;
-        const translateLeft = Math.abs(value) > Math.abs(limit) ? limit : value;
-        const transform = `translate3d(${translateLeft}px, 0px, 0px)`;
-        this.content.style.transform = transform;
+        window.requestAnimationFrame(() => {
+            const limit = value > 0 ? this.btnsLeftWidth : -this.btnsRightWidth;
+            const translateLeft = Math.abs(value) > Math.abs(limit) ? limit : value;
+            const transform = `translate3d(${translateLeft}px, 0px, 0px)`;
+            this.content.style.transform = transform;
+        })
     }
 
     openRight = () => {
