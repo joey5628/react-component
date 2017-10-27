@@ -3,8 +3,10 @@
  */
 import YHPage from './YHPage'
 import AppContainer from './AppContainer'
+import Http from './Http'
 
 export {
     YHPage,
-    AppContainer
+    AppContainer,
+    Http
 }
