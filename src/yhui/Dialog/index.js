@@ -155,7 +155,6 @@ export default class Dialog extends Component {
         if (!maskTransitionName && maskAnimation) {
             maskTransitionName = `${prefixCls}-${maskAnimation}`
         }
-        console.log('maskTransitionName:', maskTransitionName)
         return maskTransitionName
     }
 
@@ -167,7 +166,6 @@ export default class Dialog extends Component {
         if (!transitionName && animation) {
             transitionName = `yh-${animation}`
         }
-        console.log('transitionName:', transitionName)
         return transitionName;
     }
 

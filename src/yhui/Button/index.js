@@ -54,9 +54,6 @@ export default class Button extends Component {
             [`${prefixCls}-disabled`]: disabled,
         }
 
-        console.log('wrapCls:', wrapCls)
-        console.log('classNames - wrapCls:', classNames(wrapCls))
-
         //需要加上 ontouchstart 事件，否则在iOS下css :active伪类不会被触发
         return (
             <a

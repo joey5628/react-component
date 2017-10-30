@@ -7,6 +7,7 @@ import Toast from './Toast'
 import SearchBar from './SearchBar'
 import Tag from './Tag'
 import SwipeAction from './SwipeAction'
+import TabBar from './TabBar'
 
 export {
     Animation,
@@ -17,5 +18,6 @@ export {
     Toast,
     SearchBar,
     Tag,
-    SwipeAction
+    SwipeAction,
+    TabBar
 }

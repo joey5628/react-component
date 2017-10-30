@@ -12,6 +12,7 @@ const ButtonDemo = asyncComponent(() => import(/* webpackChunkName: "demo" */ '.
 const SearchBar = asyncComponent(() => import(/* webpackChunkName: "demo" */ './SearchBar'));
 const Tag = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Tag'));
 const SwipeAction = asyncComponent(() => import(/* webpackChunkName: "demo" */ './SwipeAction'));
+const TabBar = asyncComponent(() => import(/* webpackChunkName: "demo" */ './TabBar'));
 
 
 export default class Demo extends YHPage {
@@ -38,6 +39,7 @@ export default class Demo extends YHPage {
                     <Route path={`${match.path}/searchbar`} component={SearchBar}/>
                     <Route path={`${match.path}/tag`} component={Tag}/>
                     <Route path={`${match.path}/swipeaction`} component={SwipeAction}/>
+                    <Route path={`${match.path}/tabbar`} component={TabBar}/>
                 </Switch>
             </div>
         )

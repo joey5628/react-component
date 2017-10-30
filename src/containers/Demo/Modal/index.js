@@ -60,7 +60,6 @@ class Demo extends YHPage {
     render () {
         return (
             <div className="modal-container">
-                <p> demo {this.props.isLoading+''} </p>
                 <Button type="primary" inline onClick={this.show}>打开Modal</Button>
                 <Button type="primary" inline onClick={this.openAlert}>打开Alert</Button>
                 <Button type="primary" inline onClick={this.openToast}>打开Toast</Button>
