@@ -14,6 +14,7 @@ const Tag = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Tag'))
 const SwipeAction = asyncComponent(() => import(/* webpackChunkName: "demo" */ './SwipeAction'));
 const TabBar = asyncComponent(() => import(/* webpackChunkName: "demo" */ './TabBar'));
 const PullToRefresh = asyncComponent(() => import(/* webpackChunkName: "demo" */ './PullToRefresh'));
+const Badge = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Badge'));
 
 
 export default class Demo extends YHPage {
@@ -42,6 +43,7 @@ export default class Demo extends YHPage {
                     <Route path={`${match.path}/swipeaction`} component={SwipeAction}/>
                     <Route path={`${match.path}/tabbar`} component={TabBar}/>
                     <Route path={`${match.path}/PullToRefresh`} component={PullToRefresh}/>
+                    <Route path={`${match.path}/Badge`} component={Badge}/>
                 </Switch>
             </div>
         )
