@@ -8,6 +8,7 @@ import SearchBar from './SearchBar'
 import Tag from './Tag'
 import SwipeAction from './SwipeAction'
 import TabBar from './TabBar'
+import PullToRefresh from './PullToRefresh'
 
 export {
     Animation,
@@ -19,5 +20,6 @@ export {
     SearchBar,
     Tag,
     SwipeAction,
-    TabBar
+    TabBar,
+    PullToRefresh
 }
