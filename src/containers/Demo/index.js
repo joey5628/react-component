@@ -16,6 +16,7 @@ const TabBar = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Tab
 const PullToRefresh = asyncComponent(() => import(/* webpackChunkName: "demo" */ './PullToRefresh'));
 const Badge = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Badge'));
 const Table = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Table'));
+const Input = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Input'));
 
 
 export default class Demo extends YHPage {
@@ -46,6 +47,7 @@ export default class Demo extends YHPage {
                     <Route path={`${match.path}/PullToRefresh`} component={PullToRefresh}/>
                     <Route path={`${match.path}/Badge`} component={Badge}/>
                     <Route path={`${match.path}/Table`} component={Table}/>
+                    <Route path={`${match.path}/Input`} component={Input}/>
                 </Switch>
             </div>
         )

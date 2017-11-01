@@ -4,8 +4,8 @@
 
 // search-bar
 @search-bar-fill: #efeff4;
-@search-bar-height: 80px;
-@search-bar-input-height: 50px;
+@search-bar-height: 88px;
+@search-bar-input-height: 58px;
 @search-bar-font-size: 28px;
 @search-color-icon: #bbb; // input search icon 的背景色
 @search-bar-border-color: #ddd;
@@ -60,7 +60,7 @@
             color: @color-text-base;
             font-size: @search-bar-font-size;
             height: @search-bar-input-height;
-            line-height: @search-bar-input-height;
+            //line-height: @search-bar-input-height;
             text-align: left;
             display: block;
             width: 100%;
@@ -68,6 +68,7 @@
             background-color: transparent;
             box-sizing: border-box;
             z-index: 1;
+            -webkit-appearance: none;
             &.show-close {
                 padding-right: 60px;
             }

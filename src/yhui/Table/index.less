@@ -12,13 +12,18 @@
 
 .@{tablePrefixCls} {
     width: 100%;
-    position: relative;
+    //position: relative;
     overflow: auto;
+    -webkit-overflow-scrolling : touch;
+    //::-webkit-scrollbar {
+    //    opacity: 0;
+    //}
 
     table {
         border-spacing: 0;
         border-collapse: collapse;
         border: 1px solid @table-border-color; /*no*/
+        //-webkit-transform: translateZ(0);
 
         thead {
             background-color: @table-header-fill;

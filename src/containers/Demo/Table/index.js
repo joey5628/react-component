@@ -1,9 +1,6 @@
 /**
  * Created by zhangyi on 2017/11/1.
  */
-/**
- * Created by zhangyi on 2017/10/25.
- */
 import React from 'react'
 import { YHPage } from 'yhbase'
 import { Table } from 'yhui'
