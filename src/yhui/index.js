@@ -10,6 +10,7 @@ import SwipeAction from './SwipeAction'
 import TabBar from './TabBar'
 import PullToRefresh from './PullToRefresh'
 import Badge from './Badge'
+import Table from './Table'
 
 export {
     Animation,
@@ -23,5 +24,6 @@ export {
     SwipeAction,
     TabBar,
     PullToRefresh,
-    Badge
+    Badge,
+    Table
 }

@@ -1,0 +1,44 @@
+@import '../../assets/css/default.less';
+
+@tablePrefixCls: yh-table;
+
+@table-header-height: 80px;
+@table-header-fill: #f9f9f9;
+
+@table-td-height: 80px;
+@table-body-file: #fff;
+
+@table-border-color: #ddd;
+
+.@{tablePrefixCls} {
+    width: 100%;
+    position: relative;
+    overflow: auto;
+
+    table {
+        border-spacing: 0;
+        border-collapse: collapse;
+        border: 1px solid @table-border-color; /*no*/
+
+        thead {
+            background-color: @table-header-fill;
+            th {
+                font-weight: bold;
+            }
+        }
+
+        tbody {
+            background-color: @table-body-file;
+        }
+
+        thead th,
+        tbody td {
+            text-align: center;
+            height: @table-header-height;
+            line-height: @table-header-height;
+            font-size: @font-size-base;
+            color: @color-text-base;
+            border: 1px solid @table-border-color; /*no*/
+        }
+    }
+}
