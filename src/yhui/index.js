@@ -11,6 +11,7 @@ import TabBar from './TabBar'
 import PullToRefresh from './PullToRefresh'
 import Badge from './Badge'
 import Table from './Table'
+import Picker from './Picker'
 
 export {
     Animation,
@@ -25,5 +26,6 @@ export {
     TabBar,
     PullToRefresh,
     Badge,
-    Table
+    Table,
+    Picker
 }

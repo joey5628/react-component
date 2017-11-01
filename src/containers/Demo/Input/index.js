@@ -21,6 +21,12 @@ export default class Input extends YHPage {
                 <input type="number" pattern="[0-9]*" className="input" placeholder="[0-9]*"/>
                 <br/>
                 <input type="tel" className="input" placeholder="tel"/>
+                <br/>
+                <select name="" id="">
+                    <option value="first">first</option>
+                    <option value="second">second</option>
+                    <option value="third">third</option>
+                </select>
             </div>
         )
     }

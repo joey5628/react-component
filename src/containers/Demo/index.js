@@ -17,6 +17,7 @@ const PullToRefresh = asyncComponent(() => import(/* webpackChunkName: "demo" */
 const Badge = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Badge'));
 const Table = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Table'));
 const Input = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Input'));
+const Picker = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Picker'));
 
 
 export default class Demo extends YHPage {
@@ -48,6 +49,7 @@ export default class Demo extends YHPage {
                     <Route path={`${match.path}/Badge`} component={Badge}/>
                     <Route path={`${match.path}/Table`} component={Table}/>
                     <Route path={`${match.path}/Input`} component={Input}/>
+                    <Route path={`${match.path}/Picker`} component={Picker}/>
                 </Switch>
             </div>
         )
