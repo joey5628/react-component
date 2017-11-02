@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import _ from 'lodash'
 import PickerColumn from './PickerColumn'
+import Dialog from '../Dialog'
 import './index.less'
 
 function noop () {}
@@ -13,10 +14,13 @@ function noop () {}
 export default class Picker extends Component {
     constructor(props) {
         super(props)
+        this.value = []
     }
 
     static defaultProps = {
         prefixCls: 'yh-picker',
+        visible: false,
+        onClose: noop,
         className: '',
         style: null,
         options: [],
@@ -31,6 +35,8 @@ export default class Picker extends Component {
 
     static propTypes = {
         prefixCls: PropTypes.string,
+        visible: PropTypes.bool,
+        onClose: PropTypes.func,
         className: PropTypes.string,
         style: PropTypes.object,
         options: PropTypes.array,
@@ -43,9 +49,23 @@ export default class Picker extends Component {
         dismissText: PropTypes.string
     }
 
+    onOK = () => {
+        if (this.props.onOk) {
+            this.props.onOk(this.value)
+        }
+        this.props.onClose()
+    }
+
+    onDismiss = () => {
+        if (this.props.onDismiss) {
+            this.props.onDismiss()
+        }
+        this.props.onClose()
+    }
+
     renderHeader() {
         const {
-            prefixCls, okText, dismissText, onOk, onDismiss, title
+            prefixCls, okText, dismissText, title
         } = this.props
 
         return (
@@ -53,14 +73,14 @@ export default class Picker extends Component {
                 {
                     dismissText ?
                         <div
-                            className={`${prefixCls}-header-item ${prefixCls}-header-left`} onClick={onDismiss}>
+                            className={`${prefixCls}-header-item ${prefixCls}-header-left`} onClick={this.onDismiss}>
                             {dismissText}
                         </div> : null
                 }
                 <div className={`${prefixCls}-header-item ${prefixCls}-header-title`}>
                     { title }
                 </div>
-                <div className={`${prefixCls}-header-item ${prefixCls}-header-right`} onClick={onOk}>
+                <div className={`${prefixCls}-header-item ${prefixCls}-header-right`} onClick={this.onOK}>
                     { okText }
                 </div>
             </div>
@@ -83,6 +103,7 @@ export default class Picker extends Component {
                     options={options}
                     value={value}
                     onChange={(selected) => {
+                        this.value = selected
                         onChange(selected)
                     }}/>
             )
@@ -96,6 +117,7 @@ export default class Picker extends Component {
                         value={value[index]}
                         onChange={(selected) => {
                             value[index] = selected
+                            this.value = value
                             onChange(value)
                         }}/>
                 )
@@ -107,7 +129,7 @@ export default class Picker extends Component {
 
     render() {
         const {
-            prefixCls, className, style, options
+            prefixCls, className, style, options, visible, onClose
         } = this.props
 
         if (!options || options.length === 0) {
@@ -120,12 +142,28 @@ export default class Picker extends Component {
         })
 
         return (
-            <div className={wrapCls} style={style}>
-                { this.renderHeader() }
-                <div className={`${prefixCls}-wrapper`}>
-                    { this.renderColumn() }
+            <Dialog
+                visible={visible}
+                title="yh-picker"
+                maskClosable={true}
+                animation="slide-up"
+                maskAnimation="fade"
+                onClose={onClose}
+                style={{
+                    left: 0,
+                    bottom: 0,
+                    position: 'fixed',
+                    width: '100%',
+                    backgroundColor: '#fff'
+                }}
+            >
+                <div className={wrapCls} style={style}>
+                    { this.renderHeader() }
+                    <div className={`${prefixCls}-wrapper`}>
+                        { this.renderColumn() }
+                    </div>
                 </div>
-            </div>
+            </Dialog>
         )
     }
 }
