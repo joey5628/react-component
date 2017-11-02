@@ -50,7 +50,7 @@
         }
     }
 
-    &-inner {
+    &-wrapper {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -65,36 +65,47 @@
         position: relative;
         background-color: #fff;
 
-        .@{pickerPrefixCls}-mask {
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 100%;
-            z-index: 3;
-            background-image: -webkit-linear-gradient(top,hsla(0,0%,100%,.95),hsla(0,0%,100%,.6)),-webkit-linear-gradient(bottom,hsla(0,0%,100%,.95),hsla(0,0%,100%,.6));
-            background-image: linear-gradient(180deg,hsla(0,0%,100%,.95),hsla(0,0%,100%,.6)),linear-gradient(0deg,hsla(0,0%,100%,.95),hsla(0,0%,100%,.6));
-            background-position: top,bottom;
-            background-size: 100% @picker-item-height * 3;
-            background-repeat: no-repeat;
-        }
-
-        .@{pickerPrefixCls}-indicator {
-            position: absolute;
-            left: 0;
-            width: 100%;
-            z-index: 3;
-            height: @picker-item-height;
-            border-top: 1px solid @border-color-base;/*no*/
-            border-bottom: 1px solid @border-color-base;/*no*/
-        }
-
         .@{pickerPrefixCls}-col {
             flex: 1 1 0%;
             height: @picker-item-height * 7;
             overflow: hidden;
+            position: relative;
+
+            .@{pickerPrefixCls}-mask {
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 100%;
+                z-index: 3;
+                background-image: -webkit-linear-gradient(top,hsla(0,0%,100%,.95),hsla(0,0%,100%,.6)),-webkit-linear-gradient(bottom,hsla(0,0%,100%,.95),hsla(0,0%,100%,.6));
+                background-image: linear-gradient(180deg,hsla(0,0%,100%,.95),hsla(0,0%,100%,.6)),linear-gradient(0deg,hsla(0,0%,100%,.95),hsla(0,0%,100%,.6));
+                background-position: top,bottom;
+                background-size: 100% @picker-item-height * 3;
+                background-repeat: no-repeat;
+            }
+
+            .@{pickerPrefixCls}-indicator {
+                position: absolute;
+                left: 0;
+                top: @picker-item-height * 3;
+                width: 100%;
+                z-index: 3;
+                height: @picker-item-height;
+                border-top: 1px solid @border-color-base;/*no*/
+                border-bottom: 1px solid @border-color-base;/*no*/
+            }
+
+            &-scroller {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                z-index: 1;
+            }
 
             &-item {
+                touch-action: manipulation;
                 font-size: @font-size-base;
                 color: @color-text-base;
                 height: @picker-item-height;

@@ -4,6 +4,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import _ from 'lodash'
+import PickerColumn from './PickerColumn'
 import './index.less'
 
 function noop () {}
@@ -65,10 +67,52 @@ export default class Picker extends Component {
         )
     }
 
+    renderColumn () {
+        let {
+            prefixCls, options, value, onChange
+        } = this.props
+
+        value = value || []
+
+        let colNodes = null
+        if (!_.isArray(options[0])) {
+            colNodes = (
+                <PickerColumn
+                    prefixCls={prefixCls}
+                    key="0"
+                    options={options}
+                    value={value}
+                    onChange={(selected) => {
+                        onChange(selected)
+                    }}/>
+            )
+        } else {
+            colNodes = options.map((cur, index) => {
+                return (
+                    <PickerColumn
+                        prefixCls={prefixCls}
+                        key={index}
+                        options={cur}
+                        value={value[index]}
+                        onChange={(selected) => {
+                            value[index] = selected
+                            onChange(value)
+                        }}/>
+                )
+            })
+        }
+
+        return colNodes
+    }
+
     render() {
         const {
-            prefixCls, className, style
+            prefixCls, className, style, options
         } = this.props
+
+        if (!options || options.length === 0) {
+            return null
+        }
 
         const wrapCls = classNames({
             [prefixCls]: true,
@@ -78,34 +122,8 @@ export default class Picker extends Component {
         return (
             <div className={wrapCls} style={style}>
                 { this.renderHeader() }
-
-                <div className={`${prefixCls}-inner`}>
-                    <div className={`${prefixCls}-mask`}/>
-                    <div className={`${prefixCls}-indicator`}/>
-                    <div className={`${prefixCls}-col`}>
-                        <div className={`${prefixCls}-col-content`}>
-                            <div className={`${prefixCls}-col-item`}>安徽省</div>
-                            <div className={`${prefixCls}-col-item`}>安徽省</div>
-                            <div className={`${prefixCls}-col-item`}>安徽省</div>
-                            <div className={`${prefixCls}-col-item ${prefixCls}-col-item-selected`}>安徽省</div>
-                            <div className={`${prefixCls}-col-item`}>安徽省</div>
-                            <div className={`${prefixCls}-col-item`}>安徽省</div>
-                            <div className={`${prefixCls}-col-item`}>安徽省</div>
-                            <div className={`${prefixCls}-col-item`}>安徽省</div>
-                        </div>
-                    </div>
-                    <div className={`${prefixCls}-col`}>
-                        <div className={`${prefixCls}-col-content`}>
-                            <div className={`${prefixCls}-col-item`}>安徽省</div>
-                            <div className={`${prefixCls}-col-item`}>安徽省</div>
-                            <div className={`${prefixCls}-col-item`}>安徽省</div>
-                            <div className={`${prefixCls}-col-item`}>安徽省</div>
-                            <div className={`${prefixCls}-col-item`}>安徽省</div>
-                            <div className={`${prefixCls}-col-item`}>安徽省</div>
-                            <div className={`${prefixCls}-col-item`}>安徽省</div>
-                            <div className={`${prefixCls}-col-item`}>安徽省</div>
-                        </div>
-                    </div>
+                <div className={`${prefixCls}-wrapper`}>
+                    { this.renderColumn() }
                 </div>
             </div>
         )
