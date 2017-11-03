@@ -44,6 +44,7 @@ export default class SearchDemo extends YHPage {
 
 
     render() {
+
         const { value, visible, options, okValue } = this.state
 
         return (
