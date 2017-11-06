@@ -10,6 +10,9 @@ const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin')
 const baseWebpackConfig = require('./webpack.base.config')
 const config = require('../config')
 
+// const argv = require('yargs').argv;
+// console.log('argv:', argv.name)
+
 module.exports = merge(baseWebpackConfig, {
     output: {
         path: path.resolve(__dirname, '../dist'),
@@ -21,7 +24,7 @@ module.exports = merge(baseWebpackConfig, {
 
     plugins: [
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify('production')
+            'process.env.NODE_ENV': JSON.stringify(config.env)
         }),
         new UglifyjsWebpackPlugin({
             sourceMap: true

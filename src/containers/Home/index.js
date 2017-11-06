@@ -13,6 +13,7 @@ export default class Home extends YHPage {
         return (
             <div>
                 <h3>Home</h3>
+                <p> API_URL: { API_URL } </p>
             </div>
         )
     }

@@ -1,11 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
-// const utils = require('./utils')
+const { resolve } = require('./utils')
 const config = require('../config')
-
-function resolve (dir) {
-    return path.join(__dirname, '..', dir)
-}
 
 // px2rem
 const px2remConfig = Object.assign({
@@ -25,7 +21,7 @@ module.exports = {
         ]
     },
     output: {
-        path: path.resolve(__dirname, '../dist'),
+        path: resolve('dist'),
         publicPath: '/',
         filename: 'js/[name].js',
         chunkFilename: 'js/[name].chunk.js',

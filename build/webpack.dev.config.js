@@ -2,10 +2,13 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-// const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin')
-
+// const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin'
 const baseWebpackConfig = require('./webpack.base.config')
 const config = require('../config')
+const { getApiUrl } = require('./utils')
+
+// const argv = require('yargs').argv;
+// console.log('argv:', argv.name)
 
 module.exports = merge(baseWebpackConfig, {
     // devtool: '#eval-source-map',
@@ -14,7 +17,8 @@ module.exports = merge(baseWebpackConfig, {
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify('development')
+            'process.env.NODE_ENV': JSON.stringify(config.env),
+            'API_URL': JSON.stringify(getApiUrl(config.env))
         }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),

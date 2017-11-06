@@ -3,6 +3,8 @@
  */
 
 module.exports = {
+    title: 'YHOA',
+    env: 'development',
     dev: {
         port: 4000
     }
