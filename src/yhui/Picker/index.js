@@ -23,7 +23,7 @@ export default class Picker extends Component {
         onClose: noop,
         className: '',
         style: null,
-        options: [],
+        options: [],    // 支持一维数组和多维数组 {label, value}
         value: [],
         onChange: noop,
         onOk: noop,

@@ -12,6 +12,7 @@ import PullToRefresh from './PullToRefresh'
 import Badge from './Badge'
 import Table from './Table'
 import Picker from './Picker'
+import DatePicker from './DatePicker'
 
 export {
     Animation,
@@ -27,5 +28,6 @@ export {
     PullToRefresh,
     Badge,
     Table,
-    Picker
+    Picker,
+    DatePicker
 }

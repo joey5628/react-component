@@ -3,7 +3,8 @@
  */
 import React from 'react'
 import { YHPage } from 'yhbase'
-import { Picker } from 'yhui'
+import moment from 'moment'
+import { Picker, DatePicker } from 'yhui'
 import './index.less'
 
 export default class SearchDemo extends YHPage {
@@ -11,6 +12,9 @@ export default class SearchDemo extends YHPage {
         super(props)
         this.state = {
             // value: ['HBS', '003']
+            visible: false,
+            dateVisible: false,
+            dateValue: null,
             value: null,
             okValue: null,
             options: [[
@@ -44,8 +48,12 @@ export default class SearchDemo extends YHPage {
 
 
     render() {
+        // let newMoment = moment
+        // console.log(newMoment())
+        // debugger
+        // console.log('moment:', moment("20120901", "YYYYMMDD").fromNow())
 
-        const { value, visible, options, okValue } = this.state
+        const { value, visible, options, okValue, dateValue, dateVisible } = this.state
 
         return (
             <div style={{marginTop: 30}}>
@@ -57,6 +65,17 @@ export default class SearchDemo extends YHPage {
                         })
                     }}>
                     { okValue ? JSON.stringify(okValue) : '请选择' }
+                </div>
+
+                <div
+                    style={{marginTop: 20}}
+                    className="selection"
+                    onClick={() => {
+                        this.setState({
+                            dateVisible: true
+                        })
+                    }}>
+                    { dateValue ? JSON.stringify(dateValue) : '请选择日期' }
                 </div>
                 <Picker
                     visible={visible}
@@ -81,6 +100,21 @@ export default class SearchDemo extends YHPage {
                     }}
                     onDismiss={()=>{
                         console.log('onDismiss')
+                    }}/>
+
+                <DatePicker
+                    visible={dateVisible}
+                    onClose={()=>{
+                        this.setState({
+                            dateVisible: false
+                        })
+                    }}
+                    defaultValue={dateValue}
+                    onChange={(value) => {
+                        console.log('onChange:', value)
+                        this.setState({
+                            dateValue: value
+                        })
                     }}/>
             </div>
         )

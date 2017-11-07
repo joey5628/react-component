@@ -59,16 +59,17 @@ export default class PickerColumn extends Component {
         this.computeTranslate(nextProps)
     }
 
-    shouldComponentUpdate (nextProps, nextState) {
-        const state = this.state
-        /* &&
-         state.startTouchY === nextState.startTouchY*/
-        if (state.isMoving === nextState.isMoving &&
-            state.translateY === nextState.translateY) {
-            return false
-        }
-        return true
-    }
+    // 每个月的日期数不同，需要重新触发render
+    // shouldComponentUpdate (nextProps, nextState) {
+    //     const state = this.state
+    //     /* &&
+    //      state.startTouchY === nextState.startTouchY*/
+    //     if (state.isMoving === nextState.isMoving &&
+    //         state.translateY === nextState.translateY) {
+    //         return false
+    //     }
+    //     return true
+    // }
 
     // 计算初始的translate
     computeTranslate = (props) => {

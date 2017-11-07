@@ -147,12 +147,12 @@
         transform: scaleY(.5);
     }
 
-    html:not([data-scale]) .@{pickerPrefixCls}-indicator {
+    html:not([data-scale]) .@{pickerPrefixCls}-col .@{pickerPrefixCls}-indicator {
         border-top: 0 none;
         border-bottom: 0 none;
     }
 
-    html:not([data-scale]) .@{pickerPrefixCls}-indicator:before {
+    html:not([data-scale]) .@{pickerPrefixCls}-col .@{pickerPrefixCls}-indicator:before {
         content: "";
         position: absolute;
         background-color: @border-color-base;
@@ -172,7 +172,7 @@
         transform: scaleY(.5);
     }
 
-    html:not([data-scale]) .@{pickerPrefixCls}-indicator:after {
+    html:not([data-scale]) .@{pickerPrefixCls}-col .@{pickerPrefixCls}-indicator:after {
         content: "";
         position: absolute;
         background-color: @border-color-base;
