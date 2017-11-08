@@ -17,14 +17,16 @@ export default class AppContainer extends Component {
     static childContextTypes = {
         showLoading: PropTypes.func,
         hideLoading: PropTypes.func,
-        showToast: PropTypes.func
+        showToast: PropTypes.func,
+        history: PropTypes.any
     }
 
     getChildContext () {
         return {
             showLoading: this.showLoading,
             hideLoading: this.hideLoading,
-            showToast: this.showToast
+            showToast: this.showToast,
+            history: this.props.history
         }
     }
 

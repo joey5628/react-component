@@ -12,7 +12,8 @@ export default class YHPage extends Component {
     static contextTypes = {
         showLoading: PropTypes.func,
         hideLoading: PropTypes.func,
-        showToast: PropTypes.func
+        showToast: PropTypes.func,
+        history: PropTypes.any
     }
 
     showLoading(showMask) {
