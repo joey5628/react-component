@@ -56,7 +56,7 @@ export default class SearchDemo extends YHPage {
         const { value, visible, options, okValue, dateValue, dateVisible } = this.state
 
         return (
-            <div style={{marginTop: 30}}>
+            <div>
                 <div
                     className="selection"
                     onClick={() => {

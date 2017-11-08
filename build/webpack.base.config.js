@@ -32,7 +32,8 @@ module.exports = {
             'yhui': resolve('src/yhui'),
             'containers': resolve('src/containers'),
             'reducers': resolve('src/reducers'),
-            'assets': resolve('src/assets')
+            'assets': resolve('src/assets'),
+            'routes': resolve('src/routes')
         },
         extensions: [".js", ".json", ".less"],
     },

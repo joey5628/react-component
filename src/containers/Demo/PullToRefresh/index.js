@@ -18,7 +18,7 @@ export default class PullToRefreshDemo extends YHPage {
     }
 
     componentDidMount () {
-        let headerHeight = document.querySelector('.demoName').offsetHeight
+        let headerHeight = document.querySelector('.demo-header').offsetHeight
         let windowHeight = window.innerHeight
 
         let height = windowHeight - headerHeight - 1

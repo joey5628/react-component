@@ -48,8 +48,7 @@ class DialogDemo extends YHPage {
     render () {
         return (
             <div>
-                <p> demo {this.props.isLoading+''} </p>
-                <Button type="primary" inline onClick={this.show}>打开Dialog</Button>
+                <Button type="primary" inline onClick={this.show} style={{marginLeft: 20}}>打开Dialog</Button>
                 <Dialog
                     visible={this.state.visible}
                     onClose={this.hide}
@@ -60,7 +59,6 @@ class DialogDemo extends YHPage {
                         <h2>zhangyi model</h2>
                     </div>
                 </Dialog>
-                {/*<div style={{height: 800+'px', width: 50+'px', backgroundColor: '#cecece'}}></div>*/}
             </div>
         )
     }

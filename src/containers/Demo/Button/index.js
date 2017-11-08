@@ -10,8 +10,7 @@ export default class ButtonDemo extends YHPage {
     render () {
         return (
             <div>
-                <h3>button</h3>
-                <div style={{padding: 20}}>
+                <div style={{padding: '0 20px'}}>
                     <Button type="default" style={{marginBottom: 20}}>default</Button>
                     <Button type="default" disabled style={{marginBottom: 20}}>default</Button>
                     <Button type="primary" style={{marginBottom: 20}}>primary</Button>

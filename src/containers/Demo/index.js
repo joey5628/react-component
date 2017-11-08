@@ -2,55 +2,67 @@
  * Created by zhangyi on 2017/10/23.
  */
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
 import { YHPage } from 'yhbase'
+import { Switch, Route } from 'react-router-dom'
+import demoRoutes from './routes.js'
 import './demo.less'
-import asyncComponent from '../../routes/asyncComponent'
-const Dialog = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Dialog'));
-const Modal = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Modal'));
-const ButtonDemo = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Button'));
-const SearchBar = asyncComponent(() => import(/* webpackChunkName: "demo" */ './SearchBar'));
-const Tag = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Tag'));
-const SwipeAction = asyncComponent(() => import(/* webpackChunkName: "demo" */ './SwipeAction'));
-const TabBar = asyncComponent(() => import(/* webpackChunkName: "demo" */ './TabBar'));
-const PullToRefresh = asyncComponent(() => import(/* webpackChunkName: "demo" */ './PullToRefresh'));
-const Badge = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Badge'));
-const Table = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Table'));
-const Input = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Input'));
-const Picker = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Picker'));
-
 
 export default class Demo extends YHPage {
     constructor (props) {
         super(props)
     }
 
+    renderHeader () {
+        let pathname = this.props.location.pathname
+        let demoName = pathname.split('/')[2] || ''
+        if (demoName) {
+            return (
+                <div className="demo-header">
+                    <h1 onClick={()=>{
+                        this.props.history.push('/demo')
+                    }}>Home</h1>
+                    <span className="separate">|</span>
+                    <h2>{demoName}</h2>
+                </div>
+            )
+        } else {
+            return (
+                <div className="demo-header">
+                    <h1>Home</h1>
+                    <span className="separate">|</span>
+                    <span>基于React的移动端组件集</span>
+                </div>
+            )
+        }
+    }
+
+
+
     render() {
         const { match } = this.props
-        console.log(this.props)
-        // console.log('match:', match)
-        let pathname = this.props.location.pathname
-        let demo = pathname.split('/')[2]
+
+        const routeNode = (
+            <Switch>
+                {
+                    demoRoutes.map((cur, index) => {
+                        if (cur.path != '/') {
+                            return (
+                                <Route path={`${match.path}${cur.path}`} component={cur.component} key={index}/>
+                            )
+                        } else {
+                            return (
+                                <Route exact path={`${match.path}${cur.path}`} component={cur.component} key={index}/>
+                            )
+                        }
+                    })
+                }
+            </Switch>
+        )
 
         return (
             <div>
-                <div className="demoName">
-                {demo}
-                </div>
-                <Switch>
-                    <Route path={`${match.path}/dialog`} component={Dialog}/>
-                    <Route path={`${match.path}/modal`} component={Modal}/>
-                    <Route path={`${match.path}/button`} component={ButtonDemo}/>
-                    <Route path={`${match.path}/searchbar`} component={SearchBar}/>
-                    <Route path={`${match.path}/tag`} component={Tag}/>
-                    <Route path={`${match.path}/swipeaction`} component={SwipeAction}/>
-                    <Route path={`${match.path}/tabbar`} component={TabBar}/>
-                    <Route path={`${match.path}/PullToRefresh`} component={PullToRefresh}/>
-                    <Route path={`${match.path}/Badge`} component={Badge}/>
-                    <Route path={`${match.path}/Table`} component={Table}/>
-                    <Route path={`${match.path}/Input`} component={Input}/>
-                    <Route path={`${match.path}/Picker`} component={Picker}/>
-                </Switch>
+                { this.renderHeader() }
+                { routeNode }
             </div>
         )
     }

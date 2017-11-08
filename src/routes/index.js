@@ -6,16 +6,12 @@ import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import asyncComponent from './asyncComponent'
 
-const Home = asyncComponent(() => import(/* webpackChunkName: "home" */ '../containers/Home'));
-const List = asyncComponent(() => import(/* webpackChunkName: "list" */ '../containers/List'));
 const Demo = asyncComponent(() => import(/* webpackChunkName: "demo" */ '../containers/Demo'));
 
 export default function Routes () {
     return (
         <Switch>
-            <Route exact path="/" component={Home}/>
-            <Route path="/home" component={Home}/>
-            <Route path="/list" component={List}/>
+            <Route exact path="/" component={Demo}/>
             <Route path="/Demo" component={Demo}/>
         </Switch>
     )
