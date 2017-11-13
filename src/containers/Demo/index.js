@@ -12,6 +12,13 @@ export default class Demo extends YHPage {
         super(props)
     }
 
+    componentDidMount() {
+        this.showLoading(true)
+        // setTimeout(()=>{
+        //     this.hideLoading()
+        // }, 1000)
+    }
+
     renderHeader () {
         let pathname = this.props.location.pathname
         let demoName = pathname.split('/')[2] || ''

@@ -13,6 +13,7 @@ import Badge from './Badge'
 import Table from './Table'
 import Picker from './Picker'
 import DatePicker from './DatePicker'
+import Loading from './Loading'
 
 export {
     Animation,
@@ -29,5 +30,6 @@ export {
     Badge,
     Table,
     Picker,
-    DatePicker
+    DatePicker,
+    Loading
 }

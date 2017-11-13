@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Routes from 'routes'
 import {
-    Toast
+    Toast,
+    Loading
 } from 'yhui'
 
 export default class AppContainer extends Component {
@@ -10,7 +11,7 @@ export default class AppContainer extends Component {
         super(props)
         this.state = {
             showLoading: false,
-            showMask: false
+            showMask: true
         }
     }
 
@@ -30,7 +31,7 @@ export default class AppContainer extends Component {
         }
     }
 
-    showLoading (showMask) {
+    showLoading = (showMask) => {
         console.log('showLoading')
         this.setState({
             showLoading: true,
@@ -38,7 +39,7 @@ export default class AppContainer extends Component {
         })
     }
 
-    hideLoading () {
+    hideLoading = () => {
         console.log('hideLoading')
         this.setState({
             showLoading: false,
@@ -63,6 +64,7 @@ export default class AppContainer extends Component {
             <section className="app-container">
                 {this.props.childrend}
                 <Toast ref="toast"/>
+                <Loading showLoading={showLoading} showMask={showMask}/>
                 <Routes/>
             </section>
         )
