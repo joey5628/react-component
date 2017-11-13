@@ -6,7 +6,21 @@ const {
     GLOBAL_UPDATE_TOAST_CONTENT
 } = require('../types').default
 
-// TODO 暂时没有使用
+
+export function hideLoading () {
+    return {
+        type: GLOBAL_UPDATE_LOADING,
+        payload: false
+    }
+}
+
+export function showLoading () {
+    return {
+        type: GLOBAL_UPDATE_LOADING,
+        payload: true
+    }
+}
+
 export function updateLoading (isLoading) {
     return {
         type: GLOBAL_UPDATE_LOADING,

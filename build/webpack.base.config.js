@@ -33,7 +33,8 @@ module.exports = {
             'containers': resolve('src/containers'),
             'reducers': resolve('src/reducers'),
             'assets': resolve('src/assets'),
-            'routes': resolve('src/routes')
+            'routes': resolve('src/routes'),
+            'constants': resolve('src/constants')
         },
         extensions: [".js", ".json", ".less"],
     },

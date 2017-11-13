@@ -19,7 +19,7 @@ export default class TabBar extends Component {
         prefixCls: 'yh-tab-bar',
         tabBarPosition: 'top',
         className: '',
-        style: '',
+        style: null,
         items: [],
         barTintColor: '',   //tabbar 背景色
         tintColor: '',      //选中的字体颜色

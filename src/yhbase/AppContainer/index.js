@@ -1,12 +1,29 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Routes from 'routes'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+import * as globalActions from 'reducers/global/globalActions'
 import {
     Toast,
     Loading
 } from 'yhui'
 
-export default class AppContainer extends Component {
+function mapStateToProps(state) {
+    return {
+        toast: state.global.toast,
+        isLoading: state.global.isLoading
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        actions: bindActionCreators(globalActions, dispatch)
+    }
+}
+
+class AppContainer extends Component {
     constructor (props) {
         super(props)
         this.state = {
@@ -31,7 +48,31 @@ export default class AppContainer extends Component {
         }
     }
 
-    showLoading = (showMask) => {
+    componentWillReceiveProps (nextProps) {
+        const {
+            isLoading,
+            toast
+        } = nextProps
+        if(toast.time !== this.props.toast.time && !!toast.content) {
+            this.showToast(toast.content);
+        }
+
+        if (isLoading) {
+            this.showLoading()
+        } else {
+            this.hideLoading()
+        }
+    }
+
+    showLoading = () => {
+        this.props.actions.updateLoading(true)
+    }
+
+    hideLoading = () => {
+        this.props.actions.updateLoading(false)
+    }
+
+    /*showLoading = (showMask) => {
         console.log('showLoading')
         this.setState({
             showLoading: true,
@@ -45,7 +86,7 @@ export default class AppContainer extends Component {
             showLoading: false,
             showMask: false
         })
-    }
+    }*/
 
     showToast = (content) => {
         if(this.refs.toast) {
@@ -56,17 +97,18 @@ export default class AppContainer extends Component {
 
     render () {
         const {
-            showLoading,
-            showMask
-        } = this.state
+            isLoading,
+        } = this.props
 
         return (
             <section className="app-container">
                 {this.props.childrend}
                 <Toast ref="toast"/>
-                <Loading showLoading={showLoading} showMask={showMask}/>
+                <Loading showLoading={isLoading} showMask={true}/>
                 <Routes/>
             </section>
         )
     }
 }
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AppContainer))
