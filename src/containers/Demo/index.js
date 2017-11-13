@@ -14,9 +14,9 @@ export default class Demo extends YHPage {
 
     componentDidMount() {
         this.showLoading(true)
-        // setTimeout(()=>{
-        //     this.hideLoading()
-        // }, 1000)
+        setTimeout(()=>{
+            this.hideLoading()
+        }, 1000)
     }
 
     renderHeader () {
