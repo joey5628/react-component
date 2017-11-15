@@ -22,7 +22,7 @@ export default class DemoList extends Component {
                         if (cur.path != '/') {
                             return (
                                 <li className="list-item" key={index}>
-                                    <Link to={`${match.url}${cur.path}`}>
+                                    <Link to={`/Demo${cur.path}`}>
                                         { cur.name }
                                     </Link>
                                 </li>

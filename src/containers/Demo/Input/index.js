@@ -13,7 +13,7 @@ export default class Input extends YHPage {
     render() {
         return (
             <div>
-                <input type="text" className="input" placeholder="search"/>
+                <input type="text" className="input" placeholder="focus隐藏placeholder"/>
                 <br/>
                 <br/>
                 <input type="number" className="input" placeholder="number"/>
@@ -22,11 +22,23 @@ export default class Input extends YHPage {
                 <br/>
                 <input type="tel" className="input" placeholder="tel"/>
                 <br/>
-                <select name="" id="">
-                    <option value="first">first</option>
-                    <option value="second">second</option>
-                    <option value="third">third</option>
-                </select>
+                <div className="file-area">
+                    <p>默认file样式</p>
+                    <input id="uploadFile" type="file" multiple accept="image/*" onChange={this.onChange}/>
+                    <br/>
+                    <p style={{marginTop: 30}}>把input[file]的opacity设为0，label的for属性设置为input[file]的ID</p>
+                    <div className="btn-upload">
+                        <label htmlFor="uploadFile">上传图片</label>
+                    </div>
+
+                    <p style={{marginTop: 30}}>把input display设为none，点击其他元素触发input的click事件</p>
+                    <div className="input-append">
+                        <input ref="leftFile" type="file" multiple accept="image/*" style={{display: 'none'}}/>
+                        <a className="btn" onClick={()=>{
+                            this.refs.leftFile.click()
+                        }}>Browse</a>
+                    </div>
+                </div>
             </div>
         )
     }

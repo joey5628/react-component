@@ -19,6 +19,7 @@ const Badge = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Badg
 const Table = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Table'));
 const Input = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Input'));
 const Picker = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Picker'));
+const UploadFile = asyncComponent(() => import(/* webpackChunkName: "demo" */ './UploadFile'));
 
 
 const routes = [{
@@ -72,6 +73,10 @@ const routes = [{
     path: '/Input',
     component: Input,
     name: 'Input'
+}, {
+    path: '/UploadFile',
+    component: UploadFile,
+    name: 'UploadFile'
 }]
 
 export default routes

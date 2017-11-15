@@ -14,6 +14,7 @@ import Table from './Table'
 import Picker from './Picker'
 import DatePicker from './DatePicker'
 import Loading from './Loading'
+import InputImage from './InputImage'
 
 export {
     Animation,
@@ -31,5 +32,6 @@ export {
     Table,
     Picker,
     DatePicker,
-    Loading
+    Loading,
+    InputImage
 }
