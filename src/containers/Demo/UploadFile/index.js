@@ -4,6 +4,7 @@
 import React from 'react'
 import { YHPage } from 'yhbase'
 import { InputImage } from 'yhui'
+import { getObjectURL } from 'yhbase/utils'
 import './index.less'
 
 
@@ -15,17 +16,17 @@ export default class UploadFile extends YHPage {
         }
     }
 
-    getObjectURL (file) {
-        var url = null ;
-        if (window.createObjectURL!=undefined) { // basic
-            url = window.createObjectURL(file) ;
-        } else if (window.URL!=undefined) { // mozilla(firefox)
-            url = window.URL.createObjectURL(file) ;
-        } else if (window.webkitURL!=undefined) { // webkit or chrome
-            url = window.webkitURL.createObjectURL(file) ;
-        }
-        return url ;
-    }
+    // getObjectURL (file) {
+    //     var url = null ;
+    //     if (window.createObjectURL != undefined) { // basic
+    //         url = window.createObjectURL(file) ;
+    //     } else if (window.URL != undefined) { // mozilla(firefox)
+    //         url = window.URL.createObjectURL(file) ;
+    //     } else if (window.webkitURL != undefined) { // webkit or chrome
+    //         url = window.webkitURL.createObjectURL(file) ;
+    //     }
+    //     return url ;
+    // }
 
 
     onChange = (data) => {
@@ -33,7 +34,7 @@ export default class UploadFile extends YHPage {
         // let files = data.newFiles
         console.log('files')
         let urls = files.map((cur) => {
-            return this.getObjectURL(cur)
+            return getObjectURL(cur)
         })
         console.log('urls:', urls)
         this.setState({
