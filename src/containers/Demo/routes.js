@@ -21,6 +21,7 @@ const Input = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Inpu
 const Picker = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Picker'));
 const UploadFile = asyncComponent(() => import(/* webpackChunkName: "demo" */ './UploadFile'));
 const Icon = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Icon'));
+const NavBar = asyncComponent(() => import(/* webpackChunkName: "demo" */ './NavBar'));
 
 
 const routes = [{
@@ -78,6 +79,10 @@ const routes = [{
     path: '/Icon',
     component: Icon,
     name: 'Icon'
+}, {
+    path: '/NavBar',
+    component: NavBar,
+    name: 'NavBar'
 }, {
     path: '/Input',
     component: Input,

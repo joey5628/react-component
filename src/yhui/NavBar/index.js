@@ -3,6 +3,8 @@
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
+import Icon from '../Icon'
 import './index.less'
 
 export default class NavBar extends Component {
@@ -27,25 +29,35 @@ export default class NavBar extends Component {
     }
 
     renderLeft () {
-        const { leftContent, onLeftClick } = this.props
+        const { leftContent } = this.props
 
         if (leftContent) {
-
+            return leftContent
         } else {
-
+            return (
+                <Icon type="back"/>
+            )
         }
     }
 
     render() {
-        const { prefixCls, className, children } = this.props
-        const cls = {
+        const { prefixCls, className, children, onLeftClick, rightContent } = this.props
+        const cls = classNames({
             [prefixCls]: true,
             [className]: className
-        }
+        })
 
         return (
             <div className={cls}>
-                {children}
+                <div className={`${prefixCls}-left`} onClick={onLeftClick}>
+                    { this.renderLeft() }
+                </div>
+                <div className={`${prefixCls}-title`}>
+                    { children }
+                </div>
+                <div className={`${prefixCls}-right`}>
+                    { rightContent }
+                </div>
             </div>
         )
     }

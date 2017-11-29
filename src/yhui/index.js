@@ -16,6 +16,7 @@ import DatePicker from './DatePicker'
 import Loading from './Loading'
 import InputImage from './InputImage'
 import Icon from './Icon'
+import NavBar from './NavBar'
 
 export {
     Animation,
@@ -35,5 +36,6 @@ export {
     DatePicker,
     Loading,
     InputImage,
-    Icon
+    Icon,
+    NavBar
 }

@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'iconfont';
+  src:  url('fonts/iconfont.eot?oa15hp');
+  src:  url('fonts/iconfont.eot?oa15hp#iefix') format('embedded-opentype'),
+    url('fonts/iconfont.ttf?oa15hp') format('truetype'),
+    url('fonts/iconfont.woff?oa15hp') format('woff'),
+    url('fonts/iconfont.svg?oa15hp#iconfont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="yhicon-"], [class*=" yhicon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'iconfont' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.yhicon-search:before {
+  content: "\e900";
+}
+.yhicon-delete-circle:before {
+  content: "\e901";
+}
+.yhicon-back-home:before {
+  content: "\e902";
+}
+.yhicon-back:before {
+  content: "\e903";
+}

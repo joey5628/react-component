@@ -8,7 +8,8 @@ import { HashRouter } from 'react-router-dom'
 import store from './store'
 import { AppContainer } from 'yhbase'
 import 'normalize.css'
-import './assets/css/base.less'
+import 'assets/css/base.less'
+import 'assets/iconfont/style.css'
 
 
 render(
