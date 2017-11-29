@@ -68,7 +68,7 @@ export default class SearchDemo extends YHPage {
                 </div>
 
                 <div
-                    style={{marginTop: 20}}
+                    style={{marginTop: 10}}
                     className="selection"
                     onClick={() => {
                         this.setState({

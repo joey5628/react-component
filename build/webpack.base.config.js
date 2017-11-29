@@ -5,7 +5,7 @@ const config = require('../config')
 
 // px2rem
 const px2remConfig = Object.assign({
-    remUnit     : 75,
+    remUnit     : 37.5,
     remPrecision: 8,
 }, config.px2rem);
 
@@ -34,7 +34,8 @@ module.exports = {
             'reducers': resolve('src/reducers'),
             'assets': resolve('src/assets'),
             'routes': resolve('src/routes'),
-            'constants': resolve('src/constants')
+            'constants': resolve('src/constants'),
+            'components': resolve('src/components')
         },
         extensions: [".js", ".json", ".less"],
     },
@@ -64,11 +65,11 @@ module.exports = {
             },
             {
                 test: /\.less$/,
-                use: ['style-loader', 'css-loader', 'px2rem-loader?' + JSON.stringify(px2remConfig), 'less-loader']
+                use: ['style-loader', 'css-loader', 'postcss-loader', 'px2rem-loader?' + JSON.stringify(px2remConfig), 'less-loader']
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader', 'px2rem-loader?' + JSON.stringify(px2remConfig), ]
+                use: ['style-loader', 'css-loader', 'px2rem-loader?' + JSON.stringify(px2remConfig), 'postcss-loader']
             }
         ]
     }

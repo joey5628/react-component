@@ -26,12 +26,12 @@ export default class Input extends YHPage {
                     <p>默认file样式</p>
                     <input id="uploadFile" type="file" multiple accept="image/*" onChange={this.onChange}/>
                     <br/>
-                    <p style={{marginTop: 30}}>把input[file]的opacity设为0，label的for属性设置为input[file]的ID</p>
+                    <p style={{marginTop: 15}}>把input[file]的opacity设为0，label的for属性设置为input[file]的ID</p>
                     <div className="btn-upload">
                         <label htmlFor="uploadFile">上传图片</label>
                     </div>
 
-                    <p style={{marginTop: 30}}>把input display设为none，点击其他元素触发input的click事件</p>
+                    <p style={{marginTop: 15}}>把input display设为none，点击其他元素触发input的click事件</p>
                     <div className="input-append">
                         <input ref="leftFile" type="file" multiple accept="image/*" style={{display: 'none'}}/>
                         <a className="btn" onClick={()=>{

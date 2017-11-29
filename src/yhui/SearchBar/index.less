@@ -4,19 +4,19 @@
 
 // search-bar
 @search-bar-fill: #efeff4;
-@search-bar-height: 88px;
-@search-bar-input-height: 58px;
-@search-bar-font-size: 28px;
+@search-bar-height: 44px;
+@search-bar-input-height: 29px;
+@search-bar-font-size: 14px;
 @search-color-icon: #bbb; // input search icon 的背景色
 @search-bar-border-color: #ddd;
-@search-bar-radius: 10px;
+@search-bar-radius: 5px;
 
 .@{searchPrefixCls} {
     &-wrap {
         display: flex;
         display: -webkit-flex;
         align-items: center;
-        padding: 0 20px;
+        padding: 0 10px;
         background-color: @search-bar-fill;
         height: @search-bar-height;
         border-bottom: 1px solid @search-bar-border-color; /*no*/
@@ -25,7 +25,7 @@
         position: relative;
         flex: 1;
         -webkit-flex: 1;
-        //margin: 0 20px;
+        //margin: 0 10px;
         height: @search-bar-input-height;
         line-height: @search-bar-input-height;
         background-color: #fff;
@@ -39,12 +39,12 @@
             line-height: @search-bar-input-height;
             z-index: 2;
             &.yhicon-search {
-                top: 5px;
-                left: 15px;
+                top: 3px;
+                left: 8px;
             }
             &.yhicon-cycle-close {
-                top: 5px;
-                right: 15px;
+                top: 3px;
+                right: 8px;
                 display: none;
             }
             &.@{searchPrefixCls}-close-show {
@@ -64,20 +64,20 @@
             text-align: left;
             display: block;
             width: 100%;
-            padding: 0 10px 0 60px;
+            padding: 0 5px 0 30px;
             background-color: transparent;
             box-sizing: border-box;
             z-index: 1;
             -webkit-appearance: none;
             &.show-close {
-                padding-right: 60px;
+                padding-right: 30px;
             }
         }
     }
     &-cancel {
         color: @brand-primary;
         font-size: @search-bar-font-size;
-        padding-left: 20px;
+        padding-left: 10px;
         text-align: right;
         height: @search-bar-height;
         line-height: @search-bar-height;

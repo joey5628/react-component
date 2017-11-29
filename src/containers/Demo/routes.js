@@ -20,6 +20,7 @@ const Table = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Tabl
 const Input = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Input'));
 const Picker = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Picker'));
 const UploadFile = asyncComponent(() => import(/* webpackChunkName: "demo" */ './UploadFile'));
+const Icon = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Icon'));
 
 
 const routes = [{
@@ -46,6 +47,10 @@ const routes = [{
     component: Badge,
     name: 'Badge'
 }, {
+    path: '/Dialog',
+    component: Dialog,
+    name: 'Dialog'
+}, {
     path: '/Modal',
     component: Modal,
     name: 'Modal'
@@ -69,6 +74,10 @@ const routes = [{
     path: '/Table',
     component: Table,
     name: 'Table'
+}, {
+    path: '/Icon',
+    component: Icon,
+    name: 'Icon'
 }, {
     path: '/Input',
     component: Input,

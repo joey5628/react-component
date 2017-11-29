@@ -15,6 +15,7 @@ import Picker from './Picker'
 import DatePicker from './DatePicker'
 import Loading from './Loading'
 import InputImage from './InputImage'
+import Icon from './Icon'
 
 export {
     Animation,
@@ -33,5 +34,6 @@ export {
     Picker,
     DatePicker,
     Loading,
-    InputImage
+    InputImage,
+    Icon
 }
