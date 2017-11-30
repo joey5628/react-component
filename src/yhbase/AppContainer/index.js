@@ -31,9 +31,7 @@ class AppContainer extends Component {
         this.state = {
             showLoading: false,
             showMask: true,
-            navbar: {
-                title: 'header'
-            }
+            navbar: null
         }
     }
 
@@ -123,16 +121,18 @@ class AppContainer extends Component {
 
         const { navbar } = this.state
 
-        const navbarTitle = navbar.title
+        const navbarTitle = navbar ? navbar.title : ''
 
         return (
             <section className="app-container">
                 {this.props.childrend}
                 <Toast ref="toast"/>
                 <Loading showLoading={isLoading} showMask={true}/>
-                <NavBar {...navbar}>
-                    { navbarTitle }
-                </NavBar>
+                {
+                    navbar && <NavBar {...navbar}>
+                        { navbarTitle }
+                    </NavBar>
+                }
                 <Routes/>
             </section>
         )
