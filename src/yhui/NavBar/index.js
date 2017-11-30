@@ -48,15 +48,17 @@ export default class NavBar extends Component {
         })
 
         return (
-            <div className={cls}>
-                <div className={`${prefixCls}-left`} onClick={onLeftClick}>
-                    { this.renderLeft() }
-                </div>
-                <div className={`${prefixCls}-title`}>
-                    { children }
-                </div>
-                <div className={`${prefixCls}-right`}>
-                    { rightContent }
+            <div className={`${prefixCls}-wrapper`}>
+                <div className={cls}>
+                    <div className={`${prefixCls}-left`} onClick={onLeftClick}>
+                        { this.renderLeft() }
+                    </div>
+                    <div className={`${prefixCls}-title`}>
+                        { children }
+                    </div>
+                    <div className={`${prefixCls}-right`}>
+                        { rightContent }
+                    </div>
                 </div>
             </div>
         )

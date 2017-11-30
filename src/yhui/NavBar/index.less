@@ -5,41 +5,45 @@
 @navbar-height: 44px;
 @navbar-font-size: 18px;
 @navbar-h-spacing: 15px;
-//@navbar-icon-size: 18px;
+@navbar-z-index: 998;
+
+.@{navbarPrefixCls}-wrapper {
+    height: @navbar-height;
+}
 
 .@{navbarPrefixCls} {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: @navbar-z-index;
     display: flex;
     align-items: center;
     height: @navbar-height;
     //background-color: #666;
     background-image: linear-gradient(135deg, #00CDFF 0%, #5B65FF 100%);
 
-    &-left {
-        //background-color: #1284d6;
+    &-left,
+    &-title,
+    &-right {
         flex: 1;
-        height: 100%;
-        padding-left: @navbar-h-spacing;
         display: flex;
         align-items: center;
         font-size: @navbar-font-size;
         color: #fff;
+    }
+
+    &-left {
+        height: 100%;
+        padding-left: @navbar-h-spacing;
     }
 
     &-title {
-        flex: 1;
-        font-size: @navbar-font-size;
-        color: #fff;
-        text-align: center;
-        //background-color: #6abf47;
+        justify-content: center;
     }
 
     &-right {
-        flex: 1;
         padding-right: @navbar-h-spacing;
-        display: flex;
         justify-content: flex-end;
-        align-items: center;
-        font-size: @navbar-font-size;
-        color: #fff;
     }
 }

@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Routes from 'routes'
+import _ from 'lodash'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import * as globalActions from 'reducers/global/globalActions'
 import {
     Toast,
-    Loading
+    Loading,
+    NavBar
 } from 'yhui'
 
 function mapStateToProps(state) {
@@ -28,7 +30,10 @@ class AppContainer extends Component {
         super(props)
         this.state = {
             showLoading: false,
-            showMask: true
+            showMask: true,
+            navbar: {
+                title: 'header'
+            }
         }
     }
 
@@ -36,7 +41,8 @@ class AppContainer extends Component {
         showLoading: PropTypes.func,
         hideLoading: PropTypes.func,
         showToast: PropTypes.func,
-        history: PropTypes.any
+        history: PropTypes.any,
+        setHeader: PropTypes.func
     }
 
     getChildContext () {
@@ -44,7 +50,8 @@ class AppContainer extends Component {
             showLoading: this.showLoading,
             hideLoading: this.hideLoading,
             showToast: this.showToast,
-            history: this.props.history
+            history: this.props.history,
+            setHeader: this.setHeader
         }
     }
 
@@ -95,16 +102,37 @@ class AppContainer extends Component {
         }
     }
 
+    setHeader = (options) => {
+        if(_.isString(options)) {
+            this.setState({
+                navbar: {
+                    title: options
+                }
+            })
+        } else if (_.isObject(options)) {
+            this.setState({
+                navbar: options
+            })
+        }
+    }
+
     render () {
         const {
             isLoading,
         } = this.props
+
+        const { navbar } = this.state
+
+        const navbarTitle = navbar.title
 
         return (
             <section className="app-container">
                 {this.props.childrend}
                 <Toast ref="toast"/>
                 <Loading showLoading={isLoading} showMask={true}/>
+                <NavBar {...navbar}>
+                    { navbarTitle }
+                </NavBar>
                 <Routes/>
             </section>
         )

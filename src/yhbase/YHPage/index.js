@@ -13,7 +13,8 @@ export default class YHPage extends Component {
         showLoading: PropTypes.func,
         hideLoading: PropTypes.func,
         showToast: PropTypes.func,
-        history: PropTypes.any
+        history: PropTypes.any,
+        setHeader: PropTypes.func
     }
 
     showLoading(showMask) {
@@ -35,5 +36,12 @@ export default class YHPage extends Component {
             showToast
         } = this.context
         showToast && showToast(content)
+    }
+
+    setHeader (options) {
+        const {
+            setHeader
+        } = this.context
+        setHeader && setHeader(options)
     }
 }
