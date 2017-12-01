@@ -21,7 +21,7 @@ export default class SearchLoading extends PureComponent {
 
         return (
             <div className={prefixCls}>
-                <i className="icon"/>
+                <img className="loading" src={require('./imgs/loading.png')} alt=""/>
                 <span>{text}</span>
             </div>
         )

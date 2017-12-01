@@ -7,17 +7,26 @@
     color: @color;
     text-align: center;
 
-    .icon {
-        display: inline-block;
+    .loading {
         width: 16px;
         height: 16px;
-        background-color: skyblue;
         vertical-align: text-top;
+        animation: spin .8s linear infinite;
     }
 
     span {
         font-size: 14px;
         line-height: 20px;
         margin-left: 10px;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
     }
 }
