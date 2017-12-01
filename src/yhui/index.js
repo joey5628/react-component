@@ -17,6 +17,7 @@ import Loading from './Loading'
 import InputImage from './InputImage'
 import Icon from './Icon'
 import NavBar from './NavBar'
+import SearchLoading from './SearchLoading'
 
 export {
     Animation,
@@ -37,5 +38,6 @@ export {
     Loading,
     InputImage,
     Icon,
-    NavBar
+    NavBar,
+    SearchLoading
 }

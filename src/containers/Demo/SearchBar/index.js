@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import { YHPage } from 'yhbase'
-import { SearchBar } from 'yhui'
+import { SearchBar, SearchLoading } from 'yhui'
 
 export default class SearchDemo extends YHPage {
     constructor(props) {
@@ -20,6 +20,10 @@ export default class SearchDemo extends YHPage {
                     onBlur={()=>{ console.log('onBlur') }}
                     onCancel={(value)=>{ console.log('onCancel value:', value) }}
                     onClear={()=>{ console.log('onClear') }}/>
+
+                <div>
+                    <SearchLoading/>
+                </div>
             </div>
         )
     }
