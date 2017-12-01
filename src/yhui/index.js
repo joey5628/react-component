@@ -18,6 +18,7 @@ import InputImage from './InputImage'
 import Icon from './Icon'
 import NavBar from './NavBar'
 import SearchLoading from './SearchLoading'
+import Empty from './Empty'
 
 export {
     Animation,
@@ -39,5 +40,7 @@ export {
     InputImage,
     Icon,
     NavBar,
-    SearchLoading
+    SearchLoading,
+    SearchLoading,
+    Empty
 }
