@@ -13,7 +13,8 @@ export default function globalReducer (state = initialState, action) {
 
     switch (action.type) {
         case GLOBAL_UPDATE_LOADING:
-            return state.set('isLoading', action.payload)
+            console.log('action.payload:', action.payload)
+            return state.set('loading', action.payload)
 
         case GLOBAL_UPDATE_TOAST_CONTENT:
             return state.set('toast', {

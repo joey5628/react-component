@@ -4,7 +4,10 @@
 import { Record } from 'immutable'
 
 const InitialState = Record({
-    isLoading: false,
+    loading: {
+        isLoading: false,
+        showMask: false
+    },
     toast: {}
 })
 

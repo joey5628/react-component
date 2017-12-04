@@ -41,6 +41,5 @@ export {
     Icon,
     NavBar,
     SearchLoading,
-    SearchLoading,
     Empty
 }

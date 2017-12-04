@@ -10,21 +10,27 @@ const {
 export function hideLoading () {
     return {
         type: GLOBAL_UPDATE_LOADING,
-        payload: false
+        payload: {
+            isLoading: false,
+            showMask: false
+        }
     }
 }
 
 export function showLoading () {
     return {
         type: GLOBAL_UPDATE_LOADING,
-        payload: true
+        payload: {
+            isLoading: true,
+            showMask: false
+        }
     }
 }
 
-export function updateLoading (isLoading) {
+export function updateLoading (options) {
     return {
         type: GLOBAL_UPDATE_LOADING,
-        payload: isLoading
+        payload: options
     }
 }
 

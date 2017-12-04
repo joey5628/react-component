@@ -15,7 +15,8 @@ import {
 function mapStateToProps(state) {
     return {
         toast: state.global.toast,
-        isLoading: state.global.isLoading
+        isLoading: state.global.loading.isLoading,
+        showMask: state.global.loading.showMask
     }
 }
 
@@ -56,25 +57,32 @@ class AppContainer extends Component {
     componentWillReceiveProps (nextProps) {
         const {
             isLoading,
-            toast
+            toast,
+            showMask
         } = nextProps
         if(toast.time !== this.props.toast.time && !!toast.content) {
             this.showToast(toast.content);
         }
 
         if (isLoading) {
-            this.showLoading()
+            this.showLoading(showMask)
         } else {
-            this.hideLoading()
+            this.hideLoading(showMask)
         }
     }
 
-    showLoading = () => {
-        this.props.actions.updateLoading(true)
+    showLoading = (showMask) => {
+        this.props.actions.updateLoading({
+            isLoading: true,
+            showMask
+        })
     }
 
     hideLoading = () => {
-        this.props.actions.updateLoading(false)
+        this.props.actions.updateLoading({
+            isLoading: false,
+            showMask: false
+        })
     }
 
     /*showLoading = (showMask) => {
@@ -117,7 +125,10 @@ class AppContainer extends Component {
     render () {
         const {
             isLoading,
+            showMask
         } = this.props
+
+        console.log('this.props', this.props)
 
         const { navbar } = this.state
 
@@ -127,7 +138,7 @@ class AppContainer extends Component {
             <section className="app-container">
                 {this.props.childrend}
                 <Toast ref="toast"/>
-                <Loading showLoading={isLoading} showMask={true}/>
+                <Loading showLoading={isLoading} showMask={showMask}/>
                 {
                     navbar && <NavBar {...navbar}>
                         { navbarTitle }
