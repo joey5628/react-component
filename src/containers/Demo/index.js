@@ -13,6 +13,7 @@ export default class Demo extends YHPage {
     }
 
     componentDidMount() {
+        // this.setHeader('title')
         this.showLoading(true)
         setTimeout(()=>{
             this.hideLoading()

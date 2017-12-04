@@ -122,6 +122,10 @@ class AppContainer extends Component {
         }
     }
 
+    back = () => {
+        this.props.history.goBack()
+    }
+
     render () {
         const {
             isLoading,
@@ -140,7 +144,10 @@ class AppContainer extends Component {
                 <Toast ref="toast"/>
                 <Loading showLoading={isLoading} showMask={showMask}/>
                 {
-                    navbar && <NavBar {...navbar}>
+                    navbar && <NavBar
+                        {...navbar}
+                        onLeftClick={this.back}
+                        >
                         { navbarTitle }
                     </NavBar>
                 }

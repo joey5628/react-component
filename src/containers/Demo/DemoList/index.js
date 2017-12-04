@@ -11,7 +11,6 @@ export default class DemoList extends Component {
         super(props)
     }
 
-
     render() {
         const { match } = this.props
 
