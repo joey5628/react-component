@@ -120,7 +120,7 @@ export default class SearchBar extends Component {
             })
         }, 0)
         if (this.props.onBlur) {
-            this.props.onBlur()
+            this.props.onBlur(this.state.value)
         }
     }
 
@@ -170,7 +170,7 @@ export default class SearchBar extends Component {
 
         const clearCls = classNames({
             'icon': true,
-            'yhicon-cycle-close': true,
+            'yhicon-delete-circle': true,
             [`${prefixCls}-close-show`]: focus && value && value.length > 0
         })
 

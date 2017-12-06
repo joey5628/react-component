@@ -3,20 +3,22 @@
 @searchPrefixCls: yh-search;
 
 // search-bar
-@search-bar-fill: #efeff4;
-@search-bar-height: 44px;
-@search-bar-input-height: 29px;
+@search-bar-fill: #fff;
+@search-bar-height: 50px;
+@search-bar-input-fill: #f2f2f2;
+@search-bar-input-height: 30px;
 @search-bar-font-size: 14px;
-@search-color-icon: #bbb; // input search icon 的背景色
+@search-color-icon: #aaa; // input search icon 的背景色
 @search-bar-border-color: #ddd;
 @search-bar-radius: 5px;
+@search-bar-wrapper-h-spacing: 8px;
 
 .@{searchPrefixCls} {
     &-wrap {
         display: flex;
         display: -webkit-flex;
         align-items: center;
-        padding: 0 10px;
+        padding: 0 @search-bar-wrapper-h-spacing;
         background-color: @search-bar-fill;
         height: @search-bar-height;
         border-bottom: 1px solid @search-bar-border-color; /*no*/
@@ -28,7 +30,7 @@
         //margin: 0 10px;
         height: @search-bar-input-height;
         line-height: @search-bar-input-height;
-        background-color: #fff;
+        background-color: @search-bar-input-fill;
         border-radius: @search-bar-radius;
         background-clip: padding-box;
         .icon {
@@ -39,11 +41,11 @@
             line-height: @search-bar-input-height;
             z-index: 2;
             &.yhicon-search {
-                top: 3px;
-                left: 8px;
+                //top: 3px;
+                left: 10px;
             }
-            &.yhicon-cycle-close {
-                top: 3px;
+            &.yhicon-delete-circle {
+                //top: 3px;
                 right: 8px;
                 display: none;
             }
@@ -64,7 +66,7 @@
             text-align: left;
             display: block;
             width: 100%;
-            padding: 0 5px 0 30px;
+            padding: 0 5px 0 35px;
             background-color: transparent;
             box-sizing: border-box;
             z-index: 1;
@@ -75,9 +77,9 @@
         }
     }
     &-cancel {
-        color: @brand-primary;
+        color: @color-text-base;
         font-size: @search-bar-font-size;
-        padding-left: 10px;
+        padding-left: 15px;
         text-align: right;
         height: @search-bar-height;
         line-height: @search-bar-height;

@@ -14,6 +14,7 @@ export default class Icon extends PureComponent {
     static defaultProps = {
         prefixCls: 'yhicon',
         type: 'back',
+        className: '',
         size: '',
         color: ''
     }
@@ -21,15 +22,17 @@ export default class Icon extends PureComponent {
     static propTypes = {
         prefixCls: PropTypes.string,
         type: PropTypes.string,
+        className: PropTypes.string,
         size: PropTypes.string,
         color: PropTypes.string
     }
 
     render() {
-        const { prefixCls, type, size, color } = this.props
+        const { prefixCls, type, size, color, className } = this.props
 
         const cls = classNames({
             [prefixCls]: true,
+            [className]: className,
             [`${prefixCls}-${type}`]: true,
             [`${prefixCls}-${size}`]: size
         })
