@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'iconfont';
-  src:  url('fonts/iconfont.eot?oa15hp');
-  src:  url('fonts/iconfont.eot?oa15hp#iefix') format('embedded-opentype'),
-    url('fonts/iconfont.ttf?oa15hp') format('truetype'),
-    url('fonts/iconfont.woff?oa15hp') format('woff'),
-    url('fonts/iconfont.svg?oa15hp#iconfont') format('svg');
+  src:  url('fonts/iconfont.eot?ilz8pm');
+  src:  url('fonts/iconfont.eot?ilz8pm#iefix') format('embedded-opentype'),
+    url('fonts/iconfont.ttf?ilz8pm') format('truetype'),
+    url('fonts/iconfont.woff?ilz8pm') format('woff'),
+    url('fonts/iconfont.svg?ilz8pm#iconfont') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,15 +24,75 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.yhicon-search:before {
+.yhicon-attachment:before {
   content: "\e900";
 }
-.yhicon-delete-circle:before {
+.yhicon-yichehui:before {
   content: "\e901";
 }
-.yhicon-back-home:before {
+.yhicon-yituihui:before {
   content: "\e902";
 }
-.yhicon-back:before {
+.yhicon-select-active:before {
   content: "\e903";
+}
+.yhicon-select-normal:before {
+  content: "\e904";
+}
+.yhicon-return:before {
+  content: "\e905";
+}
+.yhicon-delete-bin:before {
+  content: "\e906";
+}
+.yhicon-delete-mini:before {
+  content: "\e907";
+}
+.yhicon-@:before {
+  content: "\e908";
+}
+.yhicon-pic:before {
+  content: "\e909";
+}
+.yhicon-huifu:before {
+  content: "\e90a";
+}
+.yhicon-right:before {
+  content: "\e90b";
+}
+.yhicon-left:before {
+  content: "\e90c";
+}
+.yhicon-down:before {
+  content: "\e90d";
+}
+.yhicon-up:before {
+  content: "\e90e";
+}
+.yhicon-go:before {
+  content: "\e90f";
+}
+.yhicon-zhihui:before {
+  content: "\e910";
+}
+.yhicon-faqi:before {
+  content: "\e911";
+}
+.yhicon-daishen:before {
+  content: "\e912";
+}
+.yhicon-menu:before {
+  content: "\e913";
+}
+.yhicon-search:before {
+  content: "\e914";
+}
+.yhicon-delete-circle:before {
+  content: "\e915";
+}
+.yhicon-back-home:before {
+  content: "\e916";
+}
+.yhicon-back:before {
+  content: "\e917";
 }
