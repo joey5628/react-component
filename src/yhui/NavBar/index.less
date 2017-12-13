@@ -5,7 +5,7 @@
 @navbar-height: 44px;
 @navbar-font-size: 18px;
 @navbar-h-spacing: 15px;
-@navbar-z-index: 998;
+
 
 .@{navbarPrefixCls}-wrapper {
     height: @navbar-height;
@@ -36,9 +36,18 @@
     &-left {
         height: 100%;
         padding-left: @navbar-h-spacing;
+
+        &-item {
+            height: 100%;
+            width: 35px;
+            //flex: 1;
+            display: flex;
+            align-items: center;
+        }
     }
 
     &-title {
+        flex: 3;
         justify-content: center;
     }
 

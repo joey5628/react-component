@@ -18,8 +18,8 @@
     font-size: @font-size-base;
     color: @color-text-base;
     text-align: center;
-    height: @tag-height;
-    line-height: @tag-height;
+    //height: @tag-height;
+    //line-height: @tag-height;
     border-radius: @tag-radius;
     box-sizing: border-box;
     padding: 0 @tag-h-spacing;
@@ -31,6 +31,7 @@
         display: none;
         vertical-align: text-top;
         margin-left: 8px;
+
         &.show-close{
             display: inline;
         }
@@ -42,5 +43,21 @@
         i {
             color: @color-text-base-inverse;
         }
+    }
+
+    &-danger {
+        background-color: #FF0000;
+        color: #fff;
+    }
+
+    &-warning {
+        background-color: #FFC100;
+        color: #fff;
+    }
+
+    &-small {
+        font-size: 10px;
+        line-height: 14px;
+        padding: 1px 5px;
     }
 }

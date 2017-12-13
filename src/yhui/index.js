@@ -21,6 +21,9 @@ import End from './End'
 import SearchLoading from './SearchLoading'
 import Empty from './Empty'
 import FontIcon from './FontIcon'
+import HeaderTabBar from './HeaderTabBar'
+import Label from './Label'
+import ImgPreview from './ImgPreview'
 
 export {
     Animation,
@@ -45,5 +48,8 @@ export {
     End,
     SearchLoading,
     Empty,
-    FontIcon
+    FontIcon,
+    HeaderTabBar,
+    Label,
+    ImgPreview
 }

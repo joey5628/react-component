@@ -22,8 +22,12 @@ export default class SearchBar extends Component {
 
     static defaultProps = {
         prefixCls: 'yh-search',
+        fixed: false,
         placeholder: 'Search',
+        autoFocus: false,
+        showCancel: true,
         cancelText: '取消',
+        cancelColor: '',
         defaultValue: '',
         className: '',
         onSubmit: noop,
@@ -37,8 +41,11 @@ export default class SearchBar extends Component {
 
     static propTypes = {
         prefixCls: PropTypes.string,
+        fixed: PropTypes.bool,
         placeholder: PropTypes.string,
+        showCancel: PropTypes.bool,
         cancelText: PropTypes.string,
+        cancelColor: PropTypes.string,
         defaultValue: PropTypes.string,
         className: PropTypes.string,
         onSubmit: PropTypes.func,
@@ -52,16 +59,23 @@ export default class SearchBar extends Component {
 
     componentDidMount () {
         this.componentDidUpdate()
+        if (this.props.autoFocus) {
+            setTimeout(()=>{
+                this.refs.searchInput.focus()
+            }, 0)
+        }
     }
 
     componentDidUpdate () {
-        const cancelSty = window.getComputedStyle(this.refs.cancelBtn)
-        const cancelBtnMarginLeft = cancelSty['margin-left']
-        if (!this.state.focus) {
-            let left = -this.refs.cancelBtn.offsetWidth + parseInt(cancelBtnMarginLeft, 10)
-            this.refs.cancelBtn.style.marginRight = left + 'px';
-        } else {
-            this.refs.cancelBtn.style.marginRight = 0
+        if (this.props.showCancel) {
+            const cancelSty = window.getComputedStyle(this.refs.cancelBtn)
+            const cancelBtnMarginLeft = cancelSty['margin-left']
+            if (!this.state.focus) {
+                let left = -this.refs.cancelBtn.offsetWidth + parseInt(cancelBtnMarginLeft, 10)
+                this.refs.cancelBtn.style.marginRight = left + 'px';
+            } else {
+                this.refs.cancelBtn.style.marginRight = 0
+            }
         }
     }
 
@@ -154,13 +168,19 @@ export default class SearchBar extends Component {
 
     render() {
         const {
-            prefixCls, placeholder, cancelText, className
+            fixed,
+            prefixCls, placeholder, cancelText, className, showCancel, cancelColor
         } = this.props
 
         const { value, focus } = this.state
 
         const wrapCls = classNames({
             'yh-search-wrap': true,
+        })
+
+        const contentCls = classNames({
+            'yh-search': true,
+            'yh-search-fixed': fixed,
             [className]: className
         })
 
@@ -181,28 +201,35 @@ export default class SearchBar extends Component {
         })
 
         return (
-            <form action="#" className={wrapCls} onSubmit={this.onSubmit}>
-                <div className="yh-search-input">
-                    <i className="icon yhicon-search"/>
-                    <input
-                        value={value}
-                        type="search"
-                        ref="searchInput"
-                        placeholder={placeholder}
-                        className={inputCls}
-                        onChange={this.onChange}
-                        onFocus={this.onFocus}
-                        onBlur={this.onBlur}
-                    />
-                    <a className={clearCls} onClick={this.onClear}/>
-                </div>
-                <a
-                    ref="cancelBtn"
-                    className={cancelCls}
-                    onClick={this.onCancel}>
-                    取消
-                </a>
-            </form>
+            <div className={wrapCls}>
+                <form action="#" className={contentCls} onSubmit={this.onSubmit}>
+                    <div className="yh-search-input">
+                        <i className="icon yhicon-search"/>
+                        <input
+                            value={value}
+                            type="search"
+                            ref="searchInput"
+                            placeholder={placeholder}
+                            className={inputCls}
+                            onChange={this.onChange}
+                            onFocus={this.onFocus}
+                            onBlur={this.onBlur}
+                        />
+                        <a className={clearCls} onClick={this.onClear}/>
+                    </div>
+                    {
+                        showCancel &&
+                        <a
+                            ref="cancelBtn"
+                            style={{color: cancelColor}}
+                            className={cancelCls}
+                            onClick={this.onCancel}>
+                            {cancelText}
+                        </a>
+                    }
+
+                </form>
+            </div>
         )
     }
 }

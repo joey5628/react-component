@@ -16,32 +16,46 @@ export default class NavBar extends Component {
         prefixCls: 'yh-navbar',
         className: '',
         leftContent: '',
+        showClose: false,
         rightContent: '',
-        onLeftClick: ()=>{}
+        onLeftClick: ()=>{},
+        onCloseClick: ()=>{}
     }
 
     static propTypes = {
         prefixCls: PropTypes.string,
         className: PropTypes.string,
         leftContent: PropTypes.any,
+        showClose: PropTypes.bool,
         rightContent: PropTypes.any,
-        onLeftClick: PropTypes.func
+        onLeftClick: PropTypes.func,
+        onCloseClick: PropTypes.func
     }
 
     renderLeft () {
-        const { leftContent } = this.props
+        const { prefixCls, leftContent, onLeftClick, showClose, onCloseClick } = this.props
 
         if (leftContent) {
             return leftContent
         } else {
-            return (
-                <Icon type="back"/>
-            )
+            let node = [
+                <div key="back" className={`${prefixCls}-left-item`} onClick={onLeftClick}>
+                    <Icon type="back"/>
+                </div>
+            ]
+            if (showClose) {
+                node.push(
+                    <div key="close" className={`${prefixCls}-left-item`} onClick={onCloseClick}>
+                        <Icon type="back-home"/>
+                    </div>
+                )
+            }
+            return node
         }
     }
 
     render() {
-        const { prefixCls, className, children, onLeftClick, rightContent } = this.props
+        const { prefixCls, className, children, rightContent } = this.props
         const cls = classNames({
             [prefixCls]: true,
             [className]: className
@@ -50,7 +64,7 @@ export default class NavBar extends Component {
         return (
             <div className={`${prefixCls}-wrapper`}>
                 <div className={cls}>
-                    <div className={`${prefixCls}-left`} onClick={onLeftClick}>
+                    <div className={`${prefixCls}-left`}>
                         { this.renderLeft() }
                     </div>
                     <div className={`${prefixCls}-title`}>

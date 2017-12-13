@@ -1,6 +1,7 @@
 @import '../../assets/css/default.less';
 
 @badge-line-height: 32px;
+@badge-dot-size: 5px;
 
 // 水平间距
 @h-spacing-sm: 5px;
@@ -71,8 +72,8 @@
         transform: translateX(-50%);
         transform-origin: 0 center;
         top: -2 * @border-width-lg;
-        height: 0.5 * @link-button-font-size;
-        width: 0.5 * @link-button-font-size;
+        height: @badge-dot-size; //0.5 * @link-button-font-size;
+        width: @badge-dot-size; //0.5 * @link-button-font-size;
         border-radius: 100%;
         background: @brand-important;
         z-index: 10;

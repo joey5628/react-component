@@ -4,6 +4,7 @@
 
 // search-bar
 @search-bar-fill: #fff;
+@search-bar-wrapper-height: 51px;
 @search-bar-height: 50px;
 @search-bar-input-fill: #f2f2f2;
 @search-bar-input-height: 30px;
@@ -13,16 +14,27 @@
 @search-bar-radius: 5px;
 @search-bar-wrapper-h-spacing: 8px;
 
+.@{searchPrefixCls}-wrap {
+    height: @search-bar-wrapper-height;
+}
+
 .@{searchPrefixCls} {
-    &-wrap {
-        display: flex;
-        display: -webkit-flex;
-        align-items: center;
-        padding: 0 @search-bar-wrapper-h-spacing;
-        background-color: @search-bar-fill;
-        height: @search-bar-height;
-        border-bottom: 1px solid @search-bar-border-color; /*no*/
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    padding: 0 @search-bar-wrapper-h-spacing;
+    background-color: @search-bar-fill;
+    height: @search-bar-height;
+    border-bottom: 1px solid @search-bar-border-color; /*no*/
+
+    &-fixed {
+        position: fixed;
+        top: 44px;
+        left: 0;
+        right: 0;
+        z-index: @navbar-z-index;
     }
+
     &-input {
         position: relative;
         flex: 1;

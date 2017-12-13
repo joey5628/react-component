@@ -14,6 +14,7 @@ export default class Tag extends PureComponent {
     static defaultProps = {
         prefixCls: 'yh-tag',
         className: '',
+        size: 'default',
         style: null,
         type: '',
         onClick: ()=>{},
@@ -24,6 +25,7 @@ export default class Tag extends PureComponent {
     static propTypes = {
         prefixCls: PropTypes.string,
         className: PropTypes.string,
+        size: PropTypes.string,
         style: PropTypes.object,
         type: PropTypes.string,
         onClick: PropTypes.func,
@@ -42,13 +44,14 @@ export default class Tag extends PureComponent {
 
     render () {
         const {
-            prefixCls, children, className, type, closeable
+            prefixCls, children, className, type, closeable, size
         } = this.props
 
         const cls = classNames({
             [prefixCls]: true,
             [className]: className,
-            [`${prefixCls}-primary`]: type === 'primary'
+            [`${prefixCls}-${type}`]: type,
+            [`${prefixCls}-${size}`]: size
         })
 
         const closeCls = classNames({

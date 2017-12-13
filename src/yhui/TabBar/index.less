@@ -39,7 +39,7 @@
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
-    html:not([data-scale]) .@{tabBarPrefixCls}-top:after {
+    html:not([data-scale]) .@{tabBarPrefixCls}-line.@{tabBarPrefixCls}-top:after {
         content: "";
         position: absolute;
         background-color: @tabBarBorderColor;
@@ -59,7 +59,7 @@
         transform: scaleY(.5);
     }
 
-    html:not([data-scale]) .@{tabBarPrefixCls}-bottom:before {
+    html:not([data-scale]) .@{tabBarPrefixCls}-line.@{tabBarPrefixCls}-bottom:before {
         content: "";
         position: absolute;
         background-color: @tabBarBorderColor;

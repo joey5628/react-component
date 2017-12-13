@@ -3,6 +3,7 @@
  * @date 2017-07-10-17
  */
 import React, {Component} from 'react'
+import { createPortal } from 'react-dom'
 import PropTypes from 'prop-types'
 import Animation from '../Animation'
 import LazyRenderBox from './LazyRenderBox'
@@ -16,6 +17,7 @@ export default class Dialog extends Component {
 
     static propTypes = {
         prefixCls: PropTypes.string,
+        // position: PropTypes.oneOf(['fixed', 'absolute']),
         // closable: PropTypes.bool,
         maskClosable: PropTypes.bool,
         // animated: PropTypes.bool,
@@ -48,6 +50,7 @@ export default class Dialog extends Component {
 
     static defaultProps = {
         prefixCls: 'yh-dialog',                //动画样式前缀 默认不需要传
+        // position: 'fixed',      //为了解决fixed 弹窗中有文本框，光标位置异常问题 需把fixed改为absolute
         // closable: true,
         maskClosable: true,             //点击蒙板是否可关闭
         animated: true,
@@ -71,6 +74,7 @@ export default class Dialog extends Component {
         style: {},
         // onShow: noop,
         onClose: () => {},
+        usePortal: true
         // afterClose: noop
     }
 
@@ -202,7 +206,9 @@ export default class Dialog extends Component {
     render() {
         const props = this.props
         const transitionName = this.getTransitionName()
-        return (
+        const modalRoot = document.getElementById('modal-root')
+
+        const node = (
             <div ref="dialog-wrapper">
                 {this.getMaskElement()}
                 <Animation
@@ -216,5 +222,15 @@ export default class Dialog extends Component {
                 </Animation>
             </div>
         )
+
+        if (props.usePortal) {
+            return createPortal(
+                node,
+                modalRoot
+            );
+        } else {
+            return node
+        }
+
     }
 }

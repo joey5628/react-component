@@ -5,11 +5,22 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Modal from '../Modal'
 
+function touchMove (event) {
+    // 判断默认行为是否可以被禁用
+    if (event.cancelable) {
+        // 判断默认行为是否已经被禁用
+        if (!event.defaultPrevented) {
+            event.preventDefault();
+        }
+    }
+}
+
 export default function alert(...args) {
     const title = args[0]
     const content = args[1]
     const actions = args[2] || [{text: '确定'}]
     const prefixCls = 'yh-modal'
+    const modalRoot = document.getElementById('modal-root')
 
     if(!title && !content) {
         return {
@@ -18,7 +29,9 @@ export default function alert(...args) {
     }
 
     let div = document.createElement('div')
-    document.body.appendChild(div)
+    modalRoot.appendChild(div)
+
+    modalRoot.addEventListener('touchmove', touchMove, false)
 
     function close() {
         const maskDom = div.querySelector(`.${prefixCls}-mask`)
@@ -30,8 +43,9 @@ export default function alert(...args) {
 
         setTimeout(()=>{
             ReactDOM.unmountComponentAtNode(div)
-            if (div && div.parentNode) {
-                div.parentNode.removeChild(div);
+            modalRoot.removeEventListener('touchmove', touchMove, false)
+            if (div) {
+                modalRoot.removeChild(div);
             }
         }, 210)
     }
@@ -53,6 +67,7 @@ export default function alert(...args) {
 
     ReactDOM.render(
         <Modal
+            usePortal={false}
             visible
             prefixCls={prefixCls}
             title={title}

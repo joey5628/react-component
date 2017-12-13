@@ -25,6 +25,7 @@ export default class TabBar extends Component {
         tintColor: '',      //选中的字体颜色
         unselectedTintColor: '',    //未选中的字体颜色
         defaultActiveIndex: 0,       //默认选中第几个
+        underline: true,
         onChange: ()=>{}
     }
 
@@ -38,6 +39,7 @@ export default class TabBar extends Component {
         tintColor: PropTypes.string,      //选中的字体颜色
         unselectedTintColor: PropTypes.string,    //未选中的字体颜色
         defaultActiveIndex: PropTypes.number,       //默认选中第几个
+        underline: PropTypes.bool,                  // 是否有上下边线和指示器
         onChange: PropTypes.func
     }
 
@@ -83,7 +85,8 @@ export default class TabBar extends Component {
 
     render() {
         const {
-            prefixCls, tabBarPosition, className, style, barTintColor, items, tintColor
+            prefixCls, tabBarPosition, className, style, barTintColor,
+            items, tintColor, underline
         } = this.props
 
         const {
@@ -94,7 +97,8 @@ export default class TabBar extends Component {
             [prefixCls]: true,
             [classNames]: className,
             [`${prefixCls}-top`]: tabBarPosition === 'top',
-            [`${prefixCls}-bottom`]: tabBarPosition === 'bottom'
+            [`${prefixCls}-bottom`]: tabBarPosition === 'bottom',
+            [`${prefixCls}-line`]: underline
         })
 
         const wrapSty = {
@@ -113,7 +117,9 @@ export default class TabBar extends Component {
         return (
             <div className={wrapCls} style={wrapSty}>
                 { this.renderTabs() }
-                <div className={`${prefixCls}-underline`} ref="underline" style={underSty}/>
+                {
+                    underline && <div className={`${prefixCls}-underline`} ref="underline" style={underSty}/>
+                }
             </div>
         )
     }
