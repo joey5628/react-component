@@ -5,6 +5,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import './index.less'
+import Icon from '../Icon'
 
 export default class Tag extends PureComponent {
     constructor(props) {
@@ -44,7 +45,7 @@ export default class Tag extends PureComponent {
 
     render () {
         const {
-            prefixCls, children, className, type, closeable, size
+            prefixCls, children, className, type, closeable, size, onClose
         } = this.props
 
         const cls = classNames({
@@ -55,14 +56,21 @@ export default class Tag extends PureComponent {
         })
 
         const closeCls = classNames({
-            'yhicon-global-close': true,
+            [`${prefixCls}-close`]: true,
             'show-close': closeable
         })
 
         return (
             <div className={cls} onClick={this.onClick}>
                 <span>{children}</span>
-                <i className={closeCls}/>
+                <div
+                    className={`${prefixCls}-close-wrapper`}
+                    onClick={(e)=>{
+                        onClose()
+                        e.stopPropagation()
+                    }}>
+                    <Icon className={closeCls} type="delete-mini" on/>
+                </div>
             </div>
         )
     }

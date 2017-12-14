@@ -4,9 +4,9 @@
 
 // tag
 // --
-@tag-height: 25px;
-@tag-radius: 3px;
-@tag-h-spacing: 10px;
+@tag-height: 22px;
+@tag-radius: 2px;
+@tag-h-spacing: 5px;
 @tag-close-font-size: 13px;
 
 @tag-bg-default: #fff;
@@ -16,26 +16,42 @@
 .@{tagPrefixCls} {
     display: inline-block;
     font-size: @font-size-base;
-    color: @color-text-base;
+    color: @color-link;
     text-align: center;
-    //height: @tag-height;
-    //line-height: @tag-height;
+    height: @tag-height;
+    line-height: @tag-height;
     border-radius: @tag-radius;
     box-sizing: border-box;
     padding: 0 @tag-h-spacing;
-    background-color: #ffffff;
+    background-color: #24a8e81a;
 
-    i {
-        font-size: @tag-close-font-size;
-        color: #333;
+    &-close-wrapper {
+        display: inline-block;
+    }
+
+    &-close {
+        font-size: 8px;
+        color: #999;
         display: none;
-        vertical-align: text-top;
-        margin-left: 8px;
+        margin-left: 6px;
+        vertical-align: middle;
 
         &.show-close{
             display: inline;
         }
     }
+
+    //i {
+    //    font-size: @tag-close-font-size;
+    //    color: #333;
+    //    display: none;
+    //    vertical-align: text-top;
+    //    margin-left: 8px;
+    //
+    //    &.show-close{
+    //        display: inline;
+    //    }
+    //}
 
     &-primary {
         background-color: @tag-bg-primary;

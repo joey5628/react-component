@@ -24,6 +24,8 @@ import FontIcon from './FontIcon'
 import HeaderTabBar from './HeaderTabBar'
 import Label from './Label'
 import ImgPreview from './ImgPreview'
+import Popup from './Popup'
+import PopupHeader from './PopupHeader'
 
 export {
     Animation,
@@ -51,5 +53,7 @@ export {
     FontIcon,
     HeaderTabBar,
     Label,
-    ImgPreview
+    ImgPreview,
+    Popup,
+    PopupHeader
 }
