@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import classNames from 'classnames'
 import './index.less'
 
 export default class PopupHeader extends PureComponent {
@@ -7,7 +8,8 @@ export default class PopupHeader extends PureComponent {
     }
 
     static defaultProps = {
-        cls: 'yh-popup-header',
+        prefixCls: 'yh-popup-header',
+        className: '',
         leftContent: '取消',
         leftStyle: null,
         onLeftClick: ()=>{},
@@ -19,19 +21,24 @@ export default class PopupHeader extends PureComponent {
 
     render() {
         const {
-            cls, leftContent, leftStyle, onLeftClick, title, rightContent, rightStyle, onRightClick
+            prefixCls, leftContent, leftStyle, onLeftClick, title, rightContent, rightStyle, onRightClick, className
         } = this.props
+
+        const cls = classNames({
+            [prefixCls]: true,
+            [className]: className
+        })
 
         return (
             <div className={cls}>
                 <a  style={leftStyle}
-                    className={`${cls}-left`}
+                    className={`${prefixCls}-left`}
                     onClick={onLeftClick}>
                     { leftContent }
                 </a>
-                <div className={`${cls}-title`}>{ title }</div>
+                <div className={`${prefixCls}-title`}>{ title }</div>
                 <a  style={rightStyle}
-                    className={`${cls}-right`}
+                    className={`${prefixCls}-right`}
                     onClick={onRightClick}>
                     { rightContent }
                 </a>

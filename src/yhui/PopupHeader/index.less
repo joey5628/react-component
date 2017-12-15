@@ -1,14 +1,30 @@
+@import '../../assets/css/default.less';
+
 .yh-popup-header {
     height: 44px;
     padding: 0 15px;
     display: flex;
     align-items: center;
     position: relative;
+    background-color: @fill-base;
+
+    &:before {
+        content: "";
+        position: absolute;
+        background-color: @border-color-base;
+        display: block;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        transform-origin: 100% 50%;
+        transform: scaleY(.5);
+    }
 
     &:after {
         content: "";
         position: absolute;
-        background-color: #ddd;
+        background-color: @border-color-base;
         display: block;
         bottom: 0;
         left: 0;
@@ -27,7 +43,7 @@
     }
 
     &-right {
-        color: #24A8E8;
+        color: @color-link;
         text-align: right;
     }
 
