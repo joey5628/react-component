@@ -22,11 +22,16 @@ const Picker = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Pic
 const UploadFile = asyncComponent(() => import(/* webpackChunkName: "demo" */ './UploadFile'));
 const Icon = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Icon'));
 const NavBar = asyncComponent(() => import(/* webpackChunkName: "demo" */ './NavBar'));
+const SwitchDemo = asyncComponent(() => import(/* webpackChunkName: "demo" */ './Switch'));
 
 
 const routes = [{
     path: '/',
     component: DemoList
+}, {
+    path: '/Switch',
+    component: SwitchDemo,
+    name: 'Switch'
 }, {
     path: '/SearchBar',
     component: SearchBar,

@@ -26,6 +26,7 @@ import Label from './Label'
 import ImgPreview from './ImgPreview'
 import Popup from './Popup'
 import PopupHeader from './PopupHeader'
+import Switch from './Switch'
 
 export {
     Animation,
@@ -55,5 +56,6 @@ export {
     Label,
     ImgPreview,
     Popup,
-    PopupHeader
+    PopupHeader,
+    Switch
 }
